@@ -1,4 +1,8 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
   theme: ThemeData(
@@ -16,6 +20,11 @@ class NinjaCard extends StatefulWidget {
 class Home extends State<NinjaCard> {
 
   int ninjaLevel = 0;
+  List<Quote> quotes = [
+    Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
+    Quote(author: 'Oscar Wilde', text: 'The truth is rarely pure and never simple')
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,26 +42,48 @@ class Home extends State<NinjaCard> {
             Divider(
               height: 60.0,
             ),
-            RaisedButton(
-              color: Colors.black.withOpacity(0.5),
-              onPressed: () {
-                // Respond to button press
-              },
-              child: Text("BOOK IN ADVANCE"),
+            Container(
+              child: RaisedButton(
+                color: Colors.black.withOpacity(0.5),
+                onPressed: () {
+                  // Respond to button press
+                },
+                child: Text("BOOK IN ADVANCE"),
+              ),
             ),
-            RaisedButton(
-              color: Colors.black.withOpacity(0.5),
-              onPressed: () {
-                // Respond to button press
-              },
-              child: Text("MY GYM"),
+            Container(
+              child: RaisedButton(
+                color: Colors.black.withOpacity(0.5),
+                onPressed: () {
+                  // Respond to button press
+                },
+                child: Text("MY GYM"),
+              ),
             ),
-            RaisedButton(
-              color: Colors.black.withOpacity(0.5),
-              onPressed: () {
-                // Respond to button press
-              },
-              child: Text("MY SESSIONS"),
+            Container(
+              child: RaisedButton(
+                color: Colors.black.withOpacity(0.5),
+                onPressed: () {
+                  // Respond to button press
+                },
+                child: Text("MY SESSIONS"),
+              ),
+            ),
+            Divider(
+              height: 60.0,
+            ),
+            Column(
+              children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
+            ),
+            Column(
+              children: quotes.map((quote) => QuoteCard(
+                quote: quote,
+                delete: (){
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }
+              )).toList(),
             ),
           ],
         ),
@@ -71,4 +102,6 @@ class Home extends State<NinjaCard> {
     );
   }
 }
+
+
 
