@@ -63,6 +63,12 @@ flutter:
     - family: Goldman-Regular
       fonts:
         - asset: fonts/Goldman-Regular.ttf
+    - family: Spinnaker-Regular
+      fonts:
+        - asset: fonts/Spinnaker-Regular.ttf
+    - family: Calendar
+      fonts:
+        - asset: fonts/icon_calendar.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
