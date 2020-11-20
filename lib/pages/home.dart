@@ -1,34 +1,16 @@
-
 import 'package:flutter/material.dart';
-import 'package:trainsafe/pages/book_advance.dart';
-import 'package:trainsafe/pages/infection_control.dart';
-import 'package:trainsafe/pages/loading.dart';
-import 'package:trainsafe/pages/mygym.dart';
-import 'quote.dart';
-import 'quote_card.dart';
-import 'pages/home.dart';
 
-void main() => runApp(MaterialApp(
-  initialRoute: '/home',
-  theme: ThemeData(
-      brightness: Brightness.dark,
-      primaryColor: Colors.black
-  ),
-  routes: {
-    '/': (context) => Loading(),
-    '/home': (context) => Homee(),
-    '/infection_control': (context) => InfectionControl(),
-    '/book_advance': (context) => BookAdvance(),
-    '/my_gym': (context) => MyGym(),
-  },
-));
+import '../quote.dart';
+import '../quote_card.dart';
 
-class NinjaCard extends StatefulWidget {
+class Homee extends StatefulWidget {
   @override
-  Home createState() => Home();
+  Yaa createState() => Yaa();
 }
 
-class Home extends State<NinjaCard> {
+
+
+class Yaa extends State<Homee> {
 
   int ninjaLevel = 0;
   List<Quote> quotes = [
@@ -47,7 +29,7 @@ class Home extends State<NinjaCard> {
             Text(
               "TRAINSAFE",
               style: TextStyle(
-                color: Colors.orange
+                  color: Colors.orange
               ),
             ),
             Divider(
@@ -57,7 +39,7 @@ class Home extends State<NinjaCard> {
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  // Respond to button press
+                  Navigator.pushNamed(context, '/book_advance');
                 },
                 child: Text("BOOK IN ADVANCE"),
               ),
@@ -66,7 +48,7 @@ class Home extends State<NinjaCard> {
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  // Respond to button press
+                  Navigator.pushNamed(context, '/my_gym');
                 },
                 child: Text("MY GYM"),
               ),
@@ -75,7 +57,7 @@ class Home extends State<NinjaCard> {
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  // Respond to button press
+                  Navigator.pushNamed(context, '/infection_control');
                 },
                 child: Text("MY SESSIONS"),
               ),
@@ -88,12 +70,12 @@ class Home extends State<NinjaCard> {
             ),
             Column(
               children: quotes.map((quote) => QuoteCard(
-                quote: quote,
-                delete: (){
-                  setState(() {
-                    quotes.remove(quote);
-                  });
-                }
+                  quote: quote,
+                  delete: (){
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  }
               )).toList(),
             ),
           ],
@@ -107,12 +89,10 @@ class Home extends State<NinjaCard> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.error_outline), onPressed: () {}),
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.error_outline), onPressed: () {                  Navigator.pushNamed(context, '/infection_control');
+      }),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
 
     );
   }
 }
-
-
-
