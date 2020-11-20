@@ -18,3 +18,4 @@ class InfectionControl extends StatelessWidget {
     );
   }
 }
+
