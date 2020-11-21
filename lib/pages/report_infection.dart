@@ -94,7 +94,7 @@ class ReportInfection extends StatelessWidget {
 
                     color: Colors.blueGrey.withOpacity(0.8),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/report_infection');
+                      Navigator.pushNamed(context, '/home');
                       // Respond to button press
                     },
                     child: Text('SUBMIT'),
