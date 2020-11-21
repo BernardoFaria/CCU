@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:trainsafe/pages/book_advance.dart';
 import 'package:trainsafe/pages/infection_control.dart';
+import 'package:trainsafe/pages/report_infection.dart';
+
 import 'package:trainsafe/pages/loading.dart';
 import 'package:trainsafe/pages/mygym.dart';
 import 'quote.dart';
@@ -18,6 +20,7 @@ void main() => runApp(MaterialApp(
     '/': (context) => Loading(),
     '/home': (context) => Homee(),
     '/infection_control': (context) => InfectionControl(),
+    '/report_infection': (context) => ReportInfection(),
     '/book_advance': (context) => BookAdvance(),
     '/my_gym': (context) => MyGym(),
   },

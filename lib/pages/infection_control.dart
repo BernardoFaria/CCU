@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InfectionControl extends StatelessWidget {
@@ -15,8 +16,8 @@ class InfectionControl extends StatelessWidget {
           ),
         ),
 
-        child: text(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container(
               width: 230.0,
@@ -25,7 +26,7 @@ class InfectionControl extends StatelessWidget {
 
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance');
+                  Navigator.pushNamed(context, '/report_infection');
 
                   // Respond to button press
                 },
@@ -33,74 +34,23 @@ class InfectionControl extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text('BOOK IN ADVANCE'),// style: TextStyle(color: Colors.white),),
+                    Text('REPORT INFECTION'),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
                 // child: Text("BOOK IN ADVANCE"),
               ),
               // child: Icon(MyFlutterApp),
             ),
-            SizedBox(height: 25),
-            Container(
-              width: 230.0,
-              height: 40.0,
-              child: RaisedButton(
-                color: Colors.black.withOpacity(0.5),
-                onPressed: () {
-                  // Respond to button press
-                  Navigator.pushNamed(context, '/my_gym');
 
-                },
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text('MY GYM'),// style: TextStyle(color: Colors.white),),
-                  ],
-                ),
-                // child: Text("MY GYM"),
-              ),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: 230.0,
-              height: 40.0,
-              child: RaisedButton(
-                color: Colors.black.withOpacity(0.5),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/infection_control');
-                  // Respond to button press
-                },
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text('MY SESSIONS'),// style: TextStyle(color: Colors.white),),
-                  ],
-                ),
-                // child: Text("MY SESSIONS"),
-              ),
-            ),
+
+
             Divider(
-              height: 60.0,
+              height: 120.0,
             ),
-            // Column(
-            //   children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
-            // ),
-            // Column(
-            //   children: quotes.map((quote) => QuoteCard(
-            //     quote: quote,
-            //     delete: (){
-            //       setState(() {
-            //         quotes.remove(quote);
-            //       });
-            //     }
-            //   )).toList(),
-            // ),
+
           ],
         ),
       ),
-
 
 
     );
