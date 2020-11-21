@@ -1,19 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
+import 'package:trainsafe/services/world_time.dart';
 
-class BookAdvance extends StatelessWidget {
+
+class BookAdvance extends StatefulWidget {
+  @override
+  _BookAdvanceState createState() => _BookAdvanceState();
+}
+
+class _BookAdvanceState extends State<BookAdvance> {
+
+  String time = 'loading';
+
+  void setupWorldTime() async {
+    WorldTime instance = WorldTime(location: 'London', flag: 'london.png', url: 'Europe/London');
+    await instance.getTime();
+    print(instance.time);
+    setState(() {
+      time = instance.time;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setupWorldTime();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('book'),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            IconButton(icon: Icon(Icons.arrow_back_ios_rounded), onPressed: () {                  Navigator.pushNamed(context, '/home');
-            }),
-            Spacer(),
-            IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
-          ],
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Text(time),
       ),
     );
   }
