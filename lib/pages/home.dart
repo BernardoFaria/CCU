@@ -12,6 +12,8 @@ class Homee extends StatefulWidget {
 
 class Yaa extends State<Homee> {
 
+  Map data = {};
+
   int ninjaLevel = 0;
   List<Quote> quotes = [
     Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
@@ -21,6 +23,10 @@ class Yaa extends State<Homee> {
 
   @override
   Widget build(BuildContext context) {
+    
+    data = ModalRoute.of(context).settings.arguments;
+    print(data);
+    
     return Scaffold(
 
       body: Container(
