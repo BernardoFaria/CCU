@@ -40,6 +40,7 @@ class Yaa extends State<Homee> {
               width: 230.0,
               height: 40.0,
               child: RaisedButton(
+
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
                   Navigator.pushNamed(context, '/book_advance');
@@ -57,7 +58,7 @@ class Yaa extends State<Homee> {
               ),
               // child: Icon(MyFlutterApp),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             Container(
               width: 230.0,
               height: 40.0,
@@ -132,10 +133,12 @@ class Yaa extends State<Homee> {
           child: Icon(
             Icons.error_outline,
             size: 50,
-
           ),
+          onPressed: () {
+          // Respond to button press
+          Navigator.pushNamed(context, '/infection_control');
 
-          onPressed: () {},
+        },
 
       ),
 
