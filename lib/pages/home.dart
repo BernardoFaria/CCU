@@ -22,27 +22,23 @@ class Yaa extends State<Homee> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: RichText(
-          text: TextSpan(
-            text: 'TRAINSAFE',
-            style: TextStyle(
-              fontFamily: 'Spinnaker-Regular',
-              fontWeight: FontWeight.bold,
-              color: Colors.yellow,
-              fontSize: 20,
-            ),
+
+      body: Container(
+
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/homephoto2.jpg"),
+            alignment: Alignment.centerRight,
+            fit: BoxFit.cover,
           ),
         ),
-        backgroundColor: Colors.black.withOpacity(0.1),
-      ),
-      body: Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 150.0,
-              height: 100.0,
+              width: 230.0,
+              height: 40.0,
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
@@ -54,7 +50,6 @@ class Yaa extends State<Homee> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Icon(Icons.calendar_today_sharp, color: Colors.white, size: 40),
                     Text('BOOK IN ADVANCE'),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
@@ -64,8 +59,8 @@ class Yaa extends State<Homee> {
             ),
             SizedBox(height: 20),
             Container(
-              width: 150.0,
-              height: 100.0,
+              width: 230.0,
+              height: 40.0,
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
@@ -77,7 +72,6 @@ class Yaa extends State<Homee> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Icon(Icons.person_pin_sharp, color: Colors.white, size: 40),
                     Text('MY GYM'),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
@@ -86,8 +80,8 @@ class Yaa extends State<Homee> {
             ),
             SizedBox(height: 20),
             Container(
-              width: 150.0,
-              height: 100.0,
+              width: 230.0,
+              height: 40.0,
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
@@ -98,7 +92,6 @@ class Yaa extends State<Homee> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Icon(Icons.personal_video_rounded, color: Colors.white, size: 40),
                     Text('MY SESSIONS'),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
@@ -125,6 +118,8 @@ class Yaa extends State<Homee> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: Colors.black.withOpacity(1.0),
+
         child: Row(
           children: [
             Spacer(),
@@ -132,7 +127,18 @@ class Yaa extends State<Homee> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.error_outline), onPressed: () {}),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.white,
+          child: Icon(
+            Icons.error_outline,
+            size: 50,
+
+          ),
+
+          onPressed: () {},
+
+      ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
 
     );
