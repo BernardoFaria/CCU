@@ -2,12 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InfectionControl extends StatelessWidget {
+  String s ='ola';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-      body: Container(
-
+    return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/homephoto2.jpg"),
@@ -15,45 +13,57 @@ class InfectionControl extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Center(
+              child: SizedBox(
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              width: 230.0,
-              height: 40.0,
-              child: RaisedButton(
+                width: 400.0,
+                height: 500.0,
 
-                color: Colors.black.withOpacity(0.5),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/report_infection');
 
-                  // Respond to button press
-                },
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text('REPORT INFECTION'),// style: TextStyle(color: Colors.white),),
-                  ],
+                child: Container(
+                  color: Colors.black.withOpacity(0.8),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+
+                        RaisedButton(
+
+                          color: Colors.black.withOpacity(0.5),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/report_infection');
+
+                            // Respond to button press
+                          },
+                          padding: EdgeInsets.all(10.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Text('REPORT INFECTION'),
+                              // style: TextStyle(color: Colors.white),),
+                            ],
+                          ),
+                          // child: Text("BOOK IN ADVANCE"),
+                        )
+
+                      ]
+                  ),
                 ),
-                // child: Text("BOOK IN ADVANCE"),
               ),
-              // child: Icon(MyFlutterApp),
-            ),
-
-
-
-            Divider(
-              height: 120.0,
-            ),
-
-          ],
-        ),
-      ),
-
+            )
+        )
 
     );
   }
 }
+
+
+
+
+
+
+
+
+
 
