@@ -41,9 +41,14 @@ class _LoadingState extends State<Loading> {
       ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0,30,0,0),
-          child: SpinKitFadingCube(
-            color: Colors.black,
-            size: 70.0,
+          child: Column(
+            children: [
+              Image.asset('assets/images/trainsafe.png'),
+              SpinKitFadingCube(
+                color: Colors.black,
+                size: 70.0,
+              ),
+            ],
           ),
         ),
     );

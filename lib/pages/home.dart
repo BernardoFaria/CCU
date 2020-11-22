@@ -31,6 +31,9 @@ class Yaa extends State<Homee> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(
+              height: 300,
+                child: Image.asset('assets/images/trainsafe.png')),
             Container(
               width: 230.0,
               height: 40.0,
