@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../quote.dart';
-import '../quote_card.dart';
+import '../report.dart';
+import '../report_card.dart';
 
 class Homee extends StatefulWidget {
   @override

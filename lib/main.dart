@@ -6,8 +6,8 @@ import 'package:trainsafe/pages/report_infection.dart';
 
 import 'package:trainsafe/pages/loading.dart';
 import 'package:trainsafe/pages/mygym.dart';
-import 'quote.dart';
-import 'quote_card.dart';
+import 'report.dart';
+import 'report_card.dart';
 import 'pages/home.dart';
 
 void main() => runApp(MaterialApp(
@@ -34,10 +34,7 @@ class NinjaCard extends StatefulWidget {
 class Home extends State<NinjaCard> {
 
   int ninjaLevel = 0;
-  List<Quote> quotes = [
-    Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
-    Quote(author: 'Oscar Wilde', text: 'The truth is rarely pure and never simple')
-  ];
+
 
 
   @override
