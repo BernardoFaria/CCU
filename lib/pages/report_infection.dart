@@ -1,9 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:trainsafe/report.dart';
+
+class ReportInfection extends StatefulWidget {
+  @override
+  _ReportState createState() => _ReportState();
+}
+
+class _ReportState extends State<ReportInfection> {
 
 
-class ReportInfection extends StatelessWidget {
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController ccController = new TextEditingController();
+  TextEditingController testController = new TextEditingController();
+  DateTime dateTimeField;
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +53,7 @@ class ReportInfection extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
+                        controller: nameController,
                         obscureText: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -52,7 +65,7 @@ class ReportInfection extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
-
+                      controller: ccController,
                       obscureText: false,
 
                       decoration: InputDecoration(
@@ -75,11 +88,18 @@ class ReportInfection extends StatelessWidget {
                             initialDate: currentValue ?? DateTime.now(),
                             lastDate: DateTime(2100));
                       },
+                      onChanged: (date) {
+                        setState(() {
+                          dateTimeField = date;
+                          print(dateTimeField);
+                        });
+                      },
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
+                      controller: testController,
 
                       obscureText: false,
 
@@ -94,7 +114,7 @@ class ReportInfection extends StatelessWidget {
 
                     color: Colors.blueGrey.withOpacity(0.8),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/infection_control', arguments: Report(name: nameController.text, cc: ccController.text, lastSession: '17/7', covidTest: testController.text));
                       // Respond to button press
                     },
                     child: Text('SUBMIT'),

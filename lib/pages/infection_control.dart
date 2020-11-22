@@ -1,10 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trainsafe/report_card.dart';
 
-class InfectionControl extends StatelessWidget {
+import '../report.dart';
+
+class InfectionControl extends StatefulWidget {
+  @override
+  _InfectionState createState() => _InfectionState();
+}
+
+class _InfectionState extends State<InfectionControl> {
   String s ='ola';
+
+  List<Report> reports = [
+    Report(name: 'Maria', cc: '1111', lastSession: '11/09', covidTest: 'teste.png'),
+    Report(name: 'Ze', cc: '2222', lastSession: '12/09', covidTest: 'teste.png')
+  ];
+
+  Report data;
+
   @override
   Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context).settings.arguments;
+    (data != null) ? reports.add(data) : print("data is null");
+
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -22,33 +42,35 @@ class InfectionControl extends StatelessWidget {
                 height: 500.0,
 
 
-                child: Container(
-                  color: Colors.black.withOpacity(0.8),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
 
-                        RaisedButton(
+                      SizedBox(),
 
-                          color: Colors.black.withOpacity(0.5),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/report_infection');
+                      Column(
 
-                            // Respond to button press
-                          },
-                          padding: EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Text('REPORT INFECTION'),
-                              // style: TextStyle(color: Colors.white),),
-                            ],
-                          ),
-                          // child: Text("BOOK IN ADVANCE"),
-                        )
+                        children: reports.map((quote) => ReportCard(quote: quote)).toList(),
+                      ),
 
-                      ]
-                  ),
+                      RaisedButton(
+
+                        color: Colors.black.withOpacity(0.5),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/report_infection');
+
+                          // Respond to button press
+                        },
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Text('REPORT INFECTION'),
+                          ],
+                        ),
+                      )
+
+                    ]
                 ),
               ),
             )

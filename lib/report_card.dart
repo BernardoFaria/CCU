@@ -11,7 +11,7 @@ class ReportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: const EdgeInsets.fromLTRB(1.0, 16.0, 16.0, 0),
+        margin: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
         child: Padding(
           padding: const EdgeInsets.all(2.0),
           child: Column(
@@ -21,29 +21,28 @@ class ReportCard extends StatelessWidget {
                 quote.name,
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.grey[600],
+                  color: Colors.white,
                 ),
               ),
-              SizedBox(height: 2.0),
               Text(
                 quote.cc.toString(),
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.grey[800],
+                  color: Colors.white,
                 ),
               ),
               Text(
-                quote.lastSession.toString(),
+                quote.lastSession,
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.grey[800],
+                  color: Colors.white,
                 ),
               ),
               Text(
-                quote.covidTest.toString(),
+                quote.covidTest,
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.grey[800],
+                  color: Colors.white,
                 ),
               ),
               FlatButton.icon(
