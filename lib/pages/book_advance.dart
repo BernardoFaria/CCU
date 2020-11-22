@@ -11,31 +11,64 @@ class BookAdvance extends StatefulWidget {
 
 class _BookAdvanceState extends State<BookAdvance> {
 
-  String time = 'loading';
-
-  void setupWorldTime() async {
-    WorldTime instance = WorldTime(location: 'London', flag: 'london.png', url: 'Europe/London');
-    await instance.getTime();
-    print(instance.time);
-    setState(() {
-      time = instance.time;
-    });
-  }
+  Map data = {};
 
   @override
   void initState() {
     super.initState();
-    setupWorldTime();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context).settings.arguments;
+    print(data);
+
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Text(time),
+      //appBar: AppBar(),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/homephoto2.jpg"),
+            alignment: Alignment.centerRight,
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+          child: Column(
+            children: <Widget>[
+              FlatButton.icon(
+                  onPressed: () {
+                  },
+                  icon: Icon(Icons.edit_location),
+                  label: Text(
+                      'Edit Location'
+                  )
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'oi',
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      letterSpacing: 2.0,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Text(
+                  data['time'],
+                  style: TextStyle(
+                    fontSize: 66.0,
+                  )
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

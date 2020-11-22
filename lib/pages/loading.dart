@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:trainsafe/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -30,11 +31,21 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Text('loading'),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/homephoto2.jpg"),
+          alignment: Alignment.centerRight,
+          fit: BoxFit.cover,
+        ),
       ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0,30,0,0),
+          child: SpinKitFadingCube(
+            color: Colors.black,
+            size: 70.0,
+          ),
+        ),
     );
   }
 }

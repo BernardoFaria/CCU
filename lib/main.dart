@@ -11,7 +11,7 @@ import 'quote_card.dart';
 import 'pages/home.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/home',
+  initialRoute: '/',
   theme: ThemeData(
       brightness: Brightness.dark,
       primaryColor: Colors.black

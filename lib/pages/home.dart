@@ -8,18 +8,9 @@ class Homee extends StatefulWidget {
   Yaa createState() => Yaa();
 }
 
-
-
 class Yaa extends State<Homee> {
 
   Map data = {};
-
-  int ninjaLevel = 0;
-  List<Quote> quotes = [
-    Quote(author: 'Oscar Wilde', text: 'Be yourself; everyone else is already taken'),
-    Quote(author: 'Oscar Wilde', text: 'The truth is rarely pure and never simple')
-  ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +18,17 @@ class Yaa extends State<Homee> {
     data = ModalRoute.of(context).settings.arguments;
     print(data);
     
-    return Scaffold(
-
-      body: Container(
-
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/homephoto2.jpg"),
-            alignment: Alignment.centerRight,
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/homephoto2.jpg"),
+          alignment: Alignment.centerRight,
+          fit: BoxFit.cover,
         ),
-
-        child: Column(
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
@@ -49,7 +38,7 @@ class Yaa extends State<Homee> {
 
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance');
+                  Navigator.pushNamed(context, '/book_advance', arguments: {'time': data['time']});
 
                   // Respond to button press
                 },
@@ -108,22 +97,8 @@ class Yaa extends State<Homee> {
             Divider(
               height: 60.0,
             ),
-            // Column(
-            //   children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
-            // ),
-            // Column(
-            //   children: quotes.map((quote) => QuoteCard(
-            //     quote: quote,
-            //     delete: (){
-            //       setState(() {
-            //         quotes.remove(quote);
-            //       });
-            //     }
-            //   )).toList(),
-            // ),
           ],
         ),
-      ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.black.withOpacity(1.0),
 
@@ -150,6 +125,7 @@ class Yaa extends State<Homee> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
 
+      )
     );
   }
 }
