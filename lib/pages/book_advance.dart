@@ -54,7 +54,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                     Padding(
                         padding: const EdgeInsets.all(25.0),
                         child: Text(
-                            'BOOK A SLOT',
+                            'BOOK A SESSION',
                             style: TextStyle(fontSize: 30,
                                 fontWeight: FontWeight.bold)
                         ),
@@ -125,6 +125,17 @@ class _BookAdvanceState extends State<BookAdvance> {
                       child:  Chip(
                         label: Text('SLOTS AVAILABLE: X'),
                       )
+                    ),
+                    FlatButton(
+
+                      color: Colors.grey.withOpacity(0.8),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home');
+                        // Respond to button press
+                      },
+                      child: Text('SUBMIT'),
+
+
                     ),
                       ]
                           )

@@ -11,6 +11,7 @@ class ReportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.black.withOpacity(0.8),
         margin: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
         child: Padding(
           padding: const EdgeInsets.all(2.0),
@@ -18,14 +19,14 @@ class ReportCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(
-                quote.name,
+                 quote.name,
                 style: TextStyle(
                   fontSize: 13.0,
                   color: Colors.white,
                 ),
               ),
               Text(
-                quote.cc.toString(),
+                  quote.cc.toString(),
                 style: TextStyle(
                   fontSize: 13.0,
                   color: Colors.white,
@@ -46,6 +47,7 @@ class ReportCard extends StatelessWidget {
                 ),
               ),
               FlatButton.icon(
+                color: Colors.white,
                 onPressed: delete,
                 label: Text('Delete'),
                 icon: Icon(Icons.delete),

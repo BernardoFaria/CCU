@@ -65,7 +65,7 @@ class _InfectionState extends State<InfectionControl> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Text('REPORT INFECTION'),
+                            Text('REPORT CASE'),
                           ],
                         ),
                       )
