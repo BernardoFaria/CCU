@@ -60,6 +60,14 @@ class _BookAdvanceState extends State<BookAdvance> {
                         ),
                       ),
                     Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Text(
+                            data['time'],
+                            style: TextStyle(fontSize: 30,
+                                fontWeight: FontWeight.bold)
+                        ),
+                      ),
+                    Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: DateTimeField(
                         decoration: InputDecoration(
