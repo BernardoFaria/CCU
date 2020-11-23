@@ -44,7 +44,7 @@ class _ReportState extends State<ReportInfection> {
                   Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: Text(
-                        'REPORT INFECTION',
+                        'REPORT CASE',
                         style: TextStyle(fontSize: 30,
                             fontWeight: FontWeight.bold)
 
@@ -121,11 +121,6 @@ class _ReportState extends State<ReportInfection> {
 
 
                   ),
-
-
-
-
-
 
 
               ]
