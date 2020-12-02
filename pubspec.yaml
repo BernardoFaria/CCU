@@ -53,6 +53,8 @@ flutter:
     - assets/images/trainsafe.png
     - assets/images/teste.png
     - assets/images/qrcode.png
+    - assets/images/trainingplan.png
+    - assets/images/session1.png
 
 
   # The following line ensures that the Material Icons font is

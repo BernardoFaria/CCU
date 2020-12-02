@@ -43,7 +43,7 @@ class _MyGymState extends State<MyGym> {
         body: Center(
           child: SizedBox(
             width: 400,
-            height: 700,
+            height: 650,
             child: Container(
               color: Colors.black.withOpacity(0.8),
               child: Column(
@@ -57,6 +57,7 @@ class _MyGymState extends State<MyGym> {
                             fontWeight: FontWeight.bold)
                     ),
                   ),
+                  SizedBox(height: 40),
                   Container(
                     width: 300.0,
                     height: 60.0,
@@ -84,13 +85,13 @@ class _MyGymState extends State<MyGym> {
                     child: RaisedButton(
                       color: Colors.grey.withOpacity(0.3),
                       onPressed: () {
-                        //TODO
+                        Navigator.pushNamed(context, '/training_plan');
                       },
                       padding: EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('TRAINGING PLANS',
+                          Text('TRAINGING PLAN',
                             style: TextStyle(
                               // fontFamily: 'Spinnaker-Regular',
                                 fontWeight: FontWeight.bold,
@@ -100,29 +101,102 @@ class _MyGymState extends State<MyGym> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 80),
                   Container(
-                    width: 300.0,
-                    height: 60.0,
-                    child: RaisedButton(
-                      color: Colors.grey.withOpacity(0.3),
-                      onPressed: () {
-                        //TODO
-                      },
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text('SESSIONS',
-                            style: TextStyle(
-                              // fontFamily: 'Spinnaker-Regular',
-                                fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                    child: Text('Sessions',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
                     ),
                   ),
+                  SizedBox(height: 10),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20.0),
+                    height: 150.0,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session1.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session1.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session1.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session1.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session1.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Container(
+                  //   width: 300.0,
+                  //   height: 60.0,
+                  //   child: RaisedButton(
+                  //     color: Colors.grey.withOpacity(0.3),
+                  //     onPressed: () {
+                  //       //TODO
+                  //     },
+                  //     padding: EdgeInsets.all(10.0),
+                  //     child: Column(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //       children: <Widget>[
+                  //         Text('SESSIONS',
+                  //           style: TextStyle(
+                  //             // fontFamily: 'Spinnaker-Regular',
+                  //               fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -134,7 +208,12 @@ class _MyGymState extends State<MyGym> {
           child: Row(
             children: [
               Spacer(),
+              IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              }),
+              Spacer(flex: 200),
               IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
+
             ],
           ),
         ),
