@@ -13,8 +13,8 @@ class _InfectionState extends State<InfectionControl> {
   String s ='ola';
 
   List<Report> reports = [
-    Report(name: 'Maria', cc: '1111', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: 'Ze', cc: '2222', lastSession: '12/09', covidTest: 'teste.png')
+    Report(name: '*****', cc: '*****', lastSession: '11/09', covidTest: 'teste.png'),
+    Report(name: '*****', cc: '*****', lastSession: '12/09', covidTest: 'teste.png')
   ];
 
   Report data;
