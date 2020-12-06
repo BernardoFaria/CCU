@@ -23,7 +23,7 @@ class _InfectionState extends State<InfectionControl> {
   Widget build(BuildContext context) {
 
     data = ModalRoute.of(context).settings.arguments;
-    (data != null) ? reports.add(data) : print("data is null");
+    if (data != null) { reports.add(data); } //: print("data is null");
 
     return Container(
         decoration: BoxDecoration(
@@ -37,11 +37,8 @@ class _InfectionState extends State<InfectionControl> {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SizedBox(
-
                 width: 400.0,
                 height: 500.0,
-
-
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

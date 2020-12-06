@@ -7,8 +7,11 @@ import 'package:trainsafe/pages/report_infection.dart';
 import 'package:trainsafe/pages/loading.dart';
 import 'package:trainsafe/pages/mygym.dart';
 import 'package:trainsafe/pages/training_plan.dart';
+import 'package:trainsafe/pages/mysessions.dart';
 import 'report.dart';
 import 'report_card.dart';
+import 'session.dart';
+import 'session_card.dart';
 import 'pages/home.dart';
 
 void main() => runApp(MaterialApp(
@@ -25,6 +28,7 @@ void main() => runApp(MaterialApp(
     '/book_advance': (context) => BookAdvance(),
     '/my_gym': (context) => MyGym(),
     '/training_plan': (context) => TrainingPlan(),
+    '/my_sessions': (context) => MySessions(),
   },
 ));
 

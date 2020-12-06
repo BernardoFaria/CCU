@@ -31,11 +31,8 @@ class _ReportState extends State<ReportInfection> {
         backgroundColor: Colors.transparent,
         body:Center(
           child: SizedBox(
-
             width: 400.0,
             height: 500.0,
-
-
             child: Container(
               color: Colors.black.withOpacity(0.8),
               child: Column(
