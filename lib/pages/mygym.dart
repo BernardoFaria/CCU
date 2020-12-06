@@ -18,7 +18,7 @@ class _MyGymState extends State<MyGym> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
               Image.asset('assets/images/qrcode.png',
-                width: 300, height: 300, fit: BoxFit.cover,
+                width: 250, height: 250, fit: BoxFit.cover,
               ),
             ],
           ),
@@ -42,7 +42,7 @@ class _MyGymState extends State<MyGym> {
         backgroundColor: Colors.transparent,
         body: Center(
           child: SizedBox(
-            width: 400,
+            width: 370,
             height: 650,
             child: Container(
               color: Colors.black.withOpacity(0.8),
@@ -132,7 +132,7 @@ class _MyGymState extends State<MyGym> {
                           width: 200.0,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/session1.png"),
+                              image: AssetImage("assets/images/session2.png"),
                               alignment: Alignment.centerRight,
                               fit: BoxFit.cover,
                             ),
@@ -143,7 +143,7 @@ class _MyGymState extends State<MyGym> {
                           width: 200.0,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/session1.png"),
+                              image: AssetImage("assets/images/session3.png"),
                               alignment: Alignment.centerRight,
                               fit: BoxFit.cover,
                             ),
@@ -154,7 +154,7 @@ class _MyGymState extends State<MyGym> {
                           width: 200.0,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/session1.png"),
+                              image: AssetImage("assets/images/session4.png"),
                               alignment: Alignment.centerRight,
                               fit: BoxFit.cover,
                             ),
@@ -165,7 +165,62 @@ class _MyGymState extends State<MyGym> {
                           width: 200.0,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/session1.png"),
+                              image: AssetImage("assets/images/session5.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session6.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session7.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session8.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session9.png"),
+                              alignment: Alignment.centerRight,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          // color: Colors.red,
+                        ),
+                        Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/session10.png"),
                               alignment: Alignment.centerRight,
                               fit: BoxFit.cover,
                             ),
