@@ -6,6 +6,7 @@ import 'package:trainsafe/pages/report_infection.dart';
 
 import 'package:trainsafe/pages/loading.dart';
 import 'package:trainsafe/pages/mygym.dart';
+import 'package:trainsafe/pages/training_plan.dart';
 import 'report.dart';
 import 'report_card.dart';
 import 'pages/home.dart';
@@ -23,6 +24,7 @@ void main() => runApp(MaterialApp(
     '/report_infection': (context) => ReportInfection(),
     '/book_advance': (context) => BookAdvance(),
     '/my_gym': (context) => MyGym(),
+    '/training_plan': (context) => TrainingPlan(),
   },
 ));
 
