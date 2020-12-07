@@ -24,21 +24,22 @@ ___
 
 ## Run Project:
 
-You can choose either to run an emulator or alternatively your own phone.  
+You can choose either to run an emulator or alternatively your own phone.
+<br>
 **1 - Emulator**    
-We sugest that you install Android Studio for the emulator. Click [here](https://developer.android.com/studio) to install Android Studio and [run](https://developer.android.com/studio/run/emulator) our application.   
-
+We sugest that you install Android Studio for the emulator. Click [here](https://developer.android.com/studio) to install Android Studio and [run](https://developer.android.com/studio/run/emulator) our application.
+<br>
 **2 - Your Own Phone**   
-Alternatively, you can run our application directly on your phone, by following these steps:
-1 - Enable **Developer Options** and **USB Debugging** on your device. Detailed instructions are available in the [Android documentation](https://developer.android.com/studio/debug/dev-options.html).
+Alternatively, you can run our application directly on your phone, by following these steps:    
+1 - Enable **Developer Options** and **USB Debugging** on your device. Detailed instructions are available in the [Android documentation](https://developer.android.com/studio/debug/dev-options.html).    
 
-2 - Using a USB cable, plug your phone into your computer. If prompted on your device, authorize your computer to access your device.
+2 - Using a USB cable, plug your phone into your computer. If prompted on your device, authorize your computer to access your device.    
 
-3 - In the terminal, run the following command to verify that Flutter recognizes your connected Android device:
+3 - In the terminal, run the following command to verify that Flutter recognizes your connected Android device:     
 ```
 $ flutter devices
 ```
-4 - If you Android device is recognized, go to the directory where you cloned this repository and run the following command:
+4 - If you Android device is recognized, go to the directory where you cloned this repository and run the following command:     
 ```
 CCU-$ flutter run
 ```
