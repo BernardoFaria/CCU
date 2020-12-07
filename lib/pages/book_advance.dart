@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'dart:convert';
 import 'package:trainsafe/services/world_time.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import '../session.dart';
 
 
 
@@ -15,6 +16,14 @@ class BookAdvance extends StatefulWidget {
 class _BookAdvanceState extends State<BookAdvance> {
   final format = DateFormat("hh:mm a");
   final formatDate = DateFormat("yyyy-MM-dd");
+  // Map data = {};
+
+  // DateTime dateS;
+  // DateTime beginingS;
+  // DateTime endS;
+  var dateS;
+  var beginingS;
+  var endS;
 
   @override
   void initState() {
@@ -23,6 +32,15 @@ class _BookAdvanceState extends State<BookAdvance> {
 
   @override
   Widget build(BuildContext context) {
+
+    IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
+
+    // data = ModalRoute.of(context).settings.arguments;
+    // print(data);
+    DateTime now = DateTime.now();
+    // String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
+    String formattedDate = DateFormat('kk:mm').format(now);
+    // print(now);
 
     return Container(
         decoration: BoxDecoration(
@@ -36,26 +54,30 @@ class _BookAdvanceState extends State<BookAdvance> {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SizedBox(
-
-                width: 400.0,
-                height: 500.0,
-
-
+                width: 380.0,
+                height: 550.0,
                 child: Container(
                   color: Colors.black.withOpacity(0.8),
                   child: Column(
-
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
                         padding: const EdgeInsets.all(25.0),
                         child: Text(
-                            'BOOK A SESSION',
+                            'Book A Session',
                             style: TextStyle(fontSize: 30,
                                 fontWeight: FontWeight.bold)
                         ),
                       ),
-
+                    Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Text(
+                            // data['time'],
+                            formattedDate,
+                            style: TextStyle(fontSize: 30,
+                                fontWeight: FontWeight.bold)
+                        ),
+                      ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: DateTimeField(
@@ -68,10 +90,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                           final date = await showDatePicker(
                               context: context,
                               firstDate: DateTime(2020),
-                              initialDate: currentValue ?? DateTime.now(),
+                              initialDate: currentValue ?? now,
                               lastDate: DateTime(2100));
-
-                          return date;
+                          return dateS = date;
                         },
                       ),
                     ),
@@ -86,9 +107,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                         onShowPicker: (context, currentValue) async {
                           final time = await showTimePicker(
                             context: context,
-                            initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                            initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return DateTimeField.convert(time);
+                          return beginingS = DateTimeField.convert(time);
                         },
                       ),
                     ),
@@ -103,9 +124,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                         onShowPicker: (context, currentValue) async {
                           final endTime = await showTimePicker(
                             context: context,
-                            initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                            initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return DateTimeField.convert(endTime);
+                          return endS = DateTimeField.convert(endTime);
                         },
                       ),
                     ),
@@ -116,24 +137,43 @@ class _BookAdvanceState extends State<BookAdvance> {
                       )
                     ),
                     FlatButton(
-
                       color: Colors.grey.withOpacity(0.8),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/home');
-                        // Respond to button press
+                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS.toString(), begining: beginingS.toString(), end: endS.toString()));
                       },
                       child: Text('SUBMIT'),
-
-
-
                     ),
-                      ]
-                          )
-                          ),
-                        ),
-                      )
+                  ]
                   )
-
+                ),
+              ),
+            ),
+            bottomNavigationBar: BottomAppBar(
+              color: Colors.black.withOpacity(1.0),
+              child: Row(
+                children: [
+                  Spacer(),
+                  IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  }),
+                  Spacer(flex: 200),
+                  IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
+                ],
+              ),
+            ),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.white,
+              child: Icon(
+                iconState,
+                size: 50,
+              ),
+              onPressed: () {
+                // Respond to button press
+                Navigator.pushNamed(context, '/infection_control');
+              },
+            ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+        ),
     );
   }
 }

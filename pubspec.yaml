@@ -52,7 +52,18 @@ flutter:
     - assets/images/homephoto2.jpg
     - assets/images/trainsafe.png
     - assets/images/teste.png
-
+    - assets/images/qrcode.png
+    - assets/images/trainingplan.png
+    - assets/images/session1.png
+    - assets/images/session2.png
+    - assets/images/session3.png
+    - assets/images/session4.png
+    - assets/images/session5.png
+    - assets/images/session6.png
+    - assets/images/session7.png
+    - assets/images/session8.png
+    - assets/images/session9.png
+    - assets/images/session10.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

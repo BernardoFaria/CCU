@@ -7,7 +7,6 @@ class ReportCard extends StatelessWidget {
 
   ReportCard({ this.quote, this.delete });
 
-
   @override
   Widget build(BuildContext context) {
     return Card(

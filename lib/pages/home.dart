@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../session.dart';
 import '../report.dart';
 import '../report_card.dart';
 
@@ -10,13 +11,13 @@ class Homee extends StatefulWidget {
 
 class Yaa extends State<Homee> {
 
-  Map data = {};
+  // Map data = {};
 
   @override
   Widget build(BuildContext context) {
     
-    data = ModalRoute.of(context).settings.arguments;
-    print(data);
+    // data = ModalRoute.of(context).settings.arguments;
+    // print(data);
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
@@ -43,7 +44,7 @@ class Yaa extends State<Homee> {
 
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance');
+                  Navigator.pushNamed(context, '/book_advance'); //, arguments: {'time': data['time']});
 
                   // Respond to button press
                 },
@@ -86,7 +87,7 @@ class Yaa extends State<Homee> {
               child: RaisedButton(
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/infection_control');
+                  Navigator.pushNamed(context, '/my_sessions');
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),
