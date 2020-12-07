@@ -25,10 +25,14 @@ ___
 ## Run Project:
 
 You can choose either to run an emulator or alternatively your own phone.
+
 <br>
+
 **1 - Emulator**    
 We sugest that you install Android Studio for the emulator. Click [here](https://developer.android.com/studio) to install Android Studio and [run](https://developer.android.com/studio/run/emulator) our application.
+
 <br>
+
 **2 - Your Own Phone**   
 Alternatively, you can run our application directly on your phone, by following these steps:    
 1 - Enable **Developer Options** and **USB Debugging** on your device. Detailed instructions are available in the [Android documentation](https://developer.android.com/studio/debug/dev-options.html).    
