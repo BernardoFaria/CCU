@@ -51,7 +51,7 @@ class Home extends State<NinjaCard> {
           text: TextSpan(
             text: 'TRAINSAFE',
             style: TextStyle(
-              fontFamily: 'Spinnaker-Regular',
+              // fontFamily: 'Spinnaker-Regular',
               fontWeight: FontWeight.bold,
               color: Colors.yellow,
               fontSize: 20,
