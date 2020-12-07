@@ -15,7 +15,6 @@ class BookAdvance extends StatefulWidget {
 class _BookAdvanceState extends State<BookAdvance> {
   final format = DateFormat("hh:mm a");
   final formatDate = DateFormat("yyyy-MM-dd");
-  Map data = {};
 
   @override
   void initState() {
@@ -24,9 +23,6 @@ class _BookAdvanceState extends State<BookAdvance> {
 
   @override
   Widget build(BuildContext context) {
-
-    data = ModalRoute.of(context).settings.arguments;
-    print(data);
 
     return Container(
         decoration: BoxDecoration(
@@ -59,14 +55,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                                 fontWeight: FontWeight.bold)
                         ),
                       ),
-                    Padding(
-                        padding: const EdgeInsets.all(25.0),
-                        child: Text(
-                            data['time'],
-                            style: TextStyle(fontSize: 30,
-                                fontWeight: FontWeight.bold)
-                        ),
-                      ),
+
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: DateTimeField(

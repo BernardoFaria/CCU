@@ -43,7 +43,7 @@ class Yaa extends State<Homee> {
 
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance', arguments: {'time': data['time']});
+                  Navigator.pushNamed(context, '/book_advance');
 
                   // Respond to button press
                 },
