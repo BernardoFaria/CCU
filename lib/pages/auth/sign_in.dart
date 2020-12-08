@@ -42,12 +42,12 @@ class _SignInState extends State<SignIn> {
     backgroundColor: Colors.transparent,
 
     appBar: AppBar(
-    backgroundColor: Colors.black.withOpacity(0.2),
+    backgroundColor: Colors.transparent,
     elevation: 0.0,
-        title: Text('Sign in'),
+
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person, size: 30,),
             label: Text('Register'),
             onPressed: () => widget.toggleView(),
           ),
@@ -98,9 +98,10 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
+                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
-                    'Sign In',
+                    'Log In',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
@@ -118,10 +119,11 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
+                 shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
 
                   color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
-                    'Sign In Anonymously',
+                    'Log In Anonymously',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {

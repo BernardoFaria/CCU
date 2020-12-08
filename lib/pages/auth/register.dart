@@ -42,13 +42,16 @@ class _RegisterState extends State<Register> {
       backgroundColor: Colors.transparent,
 
       appBar: AppBar(
-        backgroundColor: Colors.black.withOpacity(0.2),
+        backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Text('Sign up '),
+
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Sign In'),
+
+            icon: Icon(Icons.person, size: 30,),
+            label: Text('Sign In',),
+
+
             onPressed: () => widget.toggleView(),
           ),
         ],
@@ -98,6 +101,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
+                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
                     'Register',
@@ -124,7 +128,9 @@ class _RegisterState extends State<Register> {
           ),
           ),
         ),
+
       ),
+
     )
     );
   }
