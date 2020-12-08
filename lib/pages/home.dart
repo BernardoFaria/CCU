@@ -26,7 +26,7 @@ class Yaa extends State<Homee> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/homephoto2.jpg"),
+          image: AssetImage("assets/images/back8.jpeg"),
           alignment: Alignment.centerRight,
           fit: BoxFit.cover,
         ),
