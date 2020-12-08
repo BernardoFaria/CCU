@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:intl/intl.dart';
 import 'package:trainsafe/report.dart';
 
 class ReportInfection extends StatefulWidget {
@@ -14,7 +15,10 @@ class _ReportState extends State<ReportInfection> {
   TextEditingController nameController = new TextEditingController();
   TextEditingController ccController = new TextEditingController();
   TextEditingController testController = new TextEditingController();
+  String dateController;
   DateTime dateTimeField;
+  final formatDate = DateFormat("yyyy-MM-dd");
+
 
 
   @override
@@ -78,6 +82,7 @@ class _ReportState extends State<ReportInfection> {
                         border: OutlineInputBorder(),
                         labelText: 'LAST SESSION',
                       ),
+                      format: formatDate,
                       onShowPicker: (context, currentValue) {
                         return showDatePicker(
                             context: context,
@@ -88,6 +93,7 @@ class _ReportState extends State<ReportInfection> {
                       onChanged: (date) {
                         setState(() {
                           dateTimeField = date;
+                          dateController = formatDate.format(date);
                           print(dateTimeField);
                         });
                       },
@@ -111,7 +117,7 @@ class _ReportState extends State<ReportInfection> {
 
                     color: Colors.blueGrey.withOpacity(0.8),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/infection_control', arguments: Report(name: nameController.text, cc: ccController.text, lastSession: '17/7', covidTest: testController.text));
+                      Navigator.pushNamed(context, '/infection_control', arguments: Report(name: nameController.text, cc: ccController.text, lastSession:dateController , covidTest: testController.text));
                       // Respond to button press
                     },
                     child: Text('SUBMIT'),
