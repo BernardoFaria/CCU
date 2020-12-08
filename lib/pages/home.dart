@@ -24,7 +24,7 @@ class Yaa extends State<Homee> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/homephoto2.jpg"),
+          image: AssetImage("assets/images/wallpaper2.png"),
           alignment: Alignment.centerRight,
           fit: BoxFit.cover,
         ),
@@ -44,9 +44,9 @@ class Yaa extends State<Homee> {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                    // side: BorderSide(color: Colors.grey.withOpacity(1))
                 ),
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withOpacity(0.5),
                 onPressed: () {
                   Navigator.pushNamed(context, '/book_advance'); //, arguments: {'time': data['time']});
                   // Respond to button press
@@ -75,9 +75,9 @@ class Yaa extends State<Homee> {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                    // side: BorderSide(color: Colors.grey.withOpacity(0))
                 ),
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withOpacity(0.52),
                 onPressed: () {
                   // Respond to button press
                   Navigator.pushNamed(context, '/my_gym');
@@ -106,9 +106,9 @@ class Yaa extends State<Homee> {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                    // side: BorderSide(color: Colors.grey.withOpacity(0))
                 ),
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withOpacity(0.55),
                 onPressed: () {
                   Navigator.pushNamed(context, '/my_sessions');
                   // Respond to button press

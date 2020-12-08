@@ -35,7 +35,7 @@ class _LoadingState extends State<Loading> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/homephoto2.jpg"),
+          image: AssetImage("assets/images/wallpaper2.png"),
           alignment: Alignment.centerRight,
           fit: BoxFit.cover,
         ),

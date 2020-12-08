@@ -14,16 +14,16 @@ class BookAdvance extends StatefulWidget {
 }
 
 class _BookAdvanceState extends State<BookAdvance> {
-  final format = DateFormat("hh:mm a");
-  final formatDate = DateFormat("yyyy-MM-dd");
+  DateFormat formatHour = DateFormat("hh:mm");
+  DateFormat formatDate = DateFormat("yyyy-MM-dd");
   // Map data = {};
 
-  // DateTime dateS;
-  // DateTime beginingS;
-  // DateTime endS;
   var dateS;
   var beginingS;
+  String beginingSformated;
   var endS;
+  String endSformated;
+
 
   @override
   void initState() {
@@ -38,14 +38,12 @@ class _BookAdvanceState extends State<BookAdvance> {
     // data = ModalRoute.of(context).settings.arguments;
     // print(data);
     DateTime now = DateTime.now();
-    // String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
     String formattedDate = DateFormat('kk:mm').format(now);
-    // print(now);
 
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/homephoto2.jpg"),
+            image: AssetImage("assets/images/wallpaper2.png"),
             alignment: Alignment.centerRight,
             fit: BoxFit.cover,
           ),
@@ -94,14 +92,17 @@ class _BookAdvanceState extends State<BookAdvance> {
                           border: OutlineInputBorder(),
                           labelText: 'PICK A SESSION DATE',
                         ),
-                        format: formatDate,
+                        // format: formatDate,
                         onShowPicker: (context, currentValue)async {
                           final date = await showDatePicker(
-                              context: context,
-                              firstDate: DateTime(2020),
-                              initialDate: currentValue ?? now,
-                              lastDate: DateTime(2100));
-                          return dateS = date;
+                            context: context,
+                            firstDate: DateTime(2020),
+                            initialDate: currentValue ?? now,
+                            lastDate: DateTime(2100));
+                          if(date != null) {
+                            dateS = formatDate.format(date);
+                            return date;
+                          }
                         },
                       ),
                     ),
@@ -112,13 +113,17 @@ class _BookAdvanceState extends State<BookAdvance> {
                           border: OutlineInputBorder(),
                           labelText: 'PICK A STARTING SESSION PERIOD',
                         ),
-                        format: format,
+                        format: formatHour,
                         onShowPicker: (context, currentValue) async {
                           final time = await showTimePicker(
                             context: context,
                             initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return beginingS = DateTimeField.convert(time);
+                          if(time != null) {
+                            beginingS = DateTimeField.convert(time);
+                            beginingSformated = formatHour.format(beginingS);
+                            return beginingS;
+                          }
                         },
                       ),
                     ),
@@ -129,13 +134,17 @@ class _BookAdvanceState extends State<BookAdvance> {
                           border: OutlineInputBorder(),
                           labelText: 'PICK A ENDING SESSION PERIOD',
                         ),
-                        format: format,
+                        format: formatHour,
                         onShowPicker: (context, currentValue) async {
                           final endTime = await showTimePicker(
                             context: context,
                             initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return endS = DateTimeField.convert(endTime);
+                          if(endTime != null) {
+                            endS = DateTimeField.convert(endTime);
+                            endSformated = formatHour.format(endS);
+                            return endS;
+                          }
                         },
                       ),
                     ),
@@ -161,7 +170,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                       // padding: const EdgeInsets.all(10.0),
                       color: Colors.grey.withOpacity(0.8),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS.toString(), begining: beginingS.toString(), end: endS.toString()));
+                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS, begining: beginingSformated, end: endSformated));
                       },
                       child: Text('SUBMIT',
                         style: TextStyle(
