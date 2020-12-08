@@ -69,7 +69,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               TextFormField(
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                     labelText: 'Email',
                     filled: true,
                     fillColor: Colors.black.withOpacity(0.4)
@@ -84,7 +84,7 @@ class _RegisterState extends State<Register> {
               TextFormField(
 
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   labelText: 'Password',
                   filled: true,
                   fillColor: Colors.black.withOpacity(0.4)
