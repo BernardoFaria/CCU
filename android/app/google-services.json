@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "257527098831",
+    "project_id": "trainsafe-rp",
+    "storage_bucket": "trainsafe-rp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257527098831:android:cd9057ad2a3bf981d0b6ba",
+        "android_client_info": {
+          "package_name": "com.ruipete.trainsafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257527098831-2i9c05edkb3bkhnnlkhv29a0jpqthtg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoCy3o0S2N-PTnAC7drN2EcXxv254Lt6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257527098831-2i9c05edkb3bkhnnlkhv29a0jpqthtg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trainsafe/services/authservice.dart';
 
 import '../session.dart';
 import '../report.dart';
@@ -20,16 +21,31 @@ class Yaa extends State<Homee> {
     // print(data);
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
+    final AuthService _auth = AuthService();
 
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/homephoto2.jpg"),
+          image: AssetImage("assets/images/back8.jpeg"),
           alignment: Alignment.centerRight,
           fit: BoxFit.cover,
         ),
       ),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(''),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('logout'),
+              onPressed: () async {
+                await _auth.signOut();
+              },
+            ),
+          ],
+        ),
         backgroundColor: Colors.transparent,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
