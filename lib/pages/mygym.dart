@@ -103,7 +103,7 @@ class _MyGymState extends State<MyGym> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('Trainning Plan',
+                          Text('Training Plan',
                             style: TextStyle(
                               fontSize: 25,
                               fontFamily: 'OpenSans',
@@ -242,7 +242,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session10.png"),
                               alignment: Alignment.centerRight,

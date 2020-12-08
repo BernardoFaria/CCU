@@ -36,23 +36,32 @@ class Yaa extends State<Homee> {
           children: <Widget>[
             SizedBox(
               height: 300,
-                child: Image.asset('assets/images/trainsafe.png')),
+                child: Image.asset('assets/images/trainsafe.png')
+            ),
             Container(
-              width: 230.0,
-              height: 40.0,
+              width: 300.0,
+              height: 80.0,
               child: RaisedButton(
-
-                color: Colors.black.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                ),
+                color: Colors.black.withOpacity(0.7),
                 onPressed: () {
                   Navigator.pushNamed(context, '/book_advance'); //, arguments: {'time': data['time']});
-
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text('BOOK IN ADVANCE'),// style: TextStyle(color: Colors.white),),
+                    Text('Book In Advance',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'OpenSans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
                 // child: Text("BOOK IN ADVANCE"),
@@ -61,10 +70,14 @@ class Yaa extends State<Homee> {
             ),
             SizedBox(height: 25),
             Container(
-              width: 230.0,
-              height: 40.0,
+              width: 300.0,
+              height: 80.0,
               child: RaisedButton(
-                color: Colors.black.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                ),
+                color: Colors.black.withOpacity(0.7),
                 onPressed: () {
                   // Respond to button press
                   Navigator.pushNamed(context, '/my_gym');
@@ -74,18 +87,28 @@ class Yaa extends State<Homee> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text('MY GYM'),// style: TextStyle(color: Colors.white),),
+                    Text('MyGym',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'OpenSans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
                 // child: Text("MY GYM"),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             Container(
-              width: 230.0,
-              height: 40.0,
+              width: 300.0,
+              height: 80.0,
               child: RaisedButton(
-                color: Colors.black.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: BorderSide(color: Colors.grey.withOpacity(0))
+                ),
+                color: Colors.black.withOpacity(0.7),
                 onPressed: () {
                   Navigator.pushNamed(context, '/my_sessions');
                   // Respond to button press
@@ -94,7 +117,13 @@ class Yaa extends State<Homee> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text('MY SESSIONS'),// style: TextStyle(color: Colors.white),),
+                    Text('My Bookings',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'OpenSans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),// style: TextStyle(color: Colors.white),),
                   ],
                 ),
                 // child: Text("MY SESSIONS"),

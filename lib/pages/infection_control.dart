@@ -19,6 +19,8 @@ class _InfectionState extends State<InfectionControl> {
 
   Report data;
 
+  IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
+
   @override
   Widget build(BuildContext context) {
 
@@ -37,42 +39,84 @@ class _InfectionState extends State<InfectionControl> {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SizedBox(
-                width: 400.0,
-                height: 500.0,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                width: 370.0,
+                height: 650.0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-
+                      Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Text('Reports',
+                          style: TextStyle(fontSize: 50,
+                          fontFamily: 'OpenSans',
+                          fontWeight: FontWeight.bold)
+                        ),
+                      ),
                       SizedBox(),
-
                       Column(
-
                         children: reports.map((quote) => ReportCard(quote: quote)).toList(),
                       ),
-
+                      SizedBox(height: 20),
                       RaisedButton(
-
-                        color: Colors.black.withOpacity(0.5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            side: BorderSide(color: Colors.grey.withOpacity(0))
+                        ),
+                        color: Colors.grey.withOpacity(0.3),
                         onPressed: () {
                           Navigator.pushNamed(context, '/report_infection');
-
                           // Respond to button press
                         },
                         padding: EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Text('REPORT CASE'),
+                            Text('REPORT CASE',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'OpenSans',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
                         ),
                       )
-
                     ]
+                  ),
                 ),
               ),
-            )
+            ),
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.black.withOpacity(1.0),
+            child: Row(
+              children: [
+                Spacer(),
+                IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                }),
+                Spacer(flex: 200),
+                IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
+              ],
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.white,
+            child: Icon(
+              iconState,
+              size: 50,
+            ),
+            onPressed: () {
+              // Respond to button press
+              Navigator.pushNamed(context, '/infection_control');
+            },
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
         )
-
     );
   }
 }

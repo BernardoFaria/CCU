@@ -54,32 +54,41 @@ class _BookAdvanceState extends State<BookAdvance> {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SizedBox(
-                width: 380.0,
-                height: 550.0,
+                width: 370.0,
+                height: 650.0,
                 child: Container(
-                  color: Colors.black.withOpacity(0.8),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(25.0),
                         child: Text(
-                            'Book A Session',
-                            style: TextStyle(fontSize: 30,
-                                fontWeight: FontWeight.bold)
+                          'Book A Session',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'OpenSans',
+                          ),
                         ),
                       ),
-                    Padding(
-                        padding: const EdgeInsets.all(25.0),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
                         child: Text(
-                            // data['time'],
-                            formattedDate,
-                            style: TextStyle(fontSize: 30,
-                                fontWeight: FontWeight.bold)
+                          // data['time'],
+                          formattedDate,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'OpenSans',
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -97,7 +106,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child:  DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -114,7 +123,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child:  DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -131,17 +140,36 @@ class _BookAdvanceState extends State<BookAdvance> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(15.0),
                       child:  Chip(
-                        label: Text('SLOTS AVAILABLE: X'),
+                        padding: const EdgeInsets.all(10.0),
+                        label: Text('SLOTS AVAILABLE: X',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'OpenSans',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       )
                     ),
+                    SizedBox(height: 20),
                     FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.grey.withOpacity(0))
+                      ),
+                      // padding: const EdgeInsets.all(10.0),
                       color: Colors.grey.withOpacity(0.8),
                       onPressed: () {
                         Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS.toString(), begining: beginingS.toString(), end: endS.toString()));
                       },
-                      child: Text('SUBMIT'),
+                      child: Text('SUBMIT',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'OpenSans',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ]
                   )
