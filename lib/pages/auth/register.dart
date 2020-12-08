@@ -44,7 +44,7 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.black.withOpacity(0.2),
         elevation: 0.0,
-        title: Text('Sign up to TrainSafe'),
+        title: Text('Sign up '),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -98,7 +98,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                  color: Colors.pink[400],
+                  color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
                     'Register',
                     style: TextStyle(color: Colors.white),

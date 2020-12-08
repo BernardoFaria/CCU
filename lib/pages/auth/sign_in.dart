@@ -28,12 +28,23 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return loading ? Loading2() : Scaffold(
-      backgroundColor: Colors.brown[100],
-      appBar: AppBar(
-        backgroundColor: Colors.brown[400],
-        elevation: 0.0,
-        title: Text('Sign in to TrainSafe'),
+    return loading ? Loading2() : Container(
+
+        decoration: BoxDecoration(
+        image: DecorationImage(
+        image: AssetImage("assets/images/back8.jpeg"),
+        alignment: Alignment.centerRight,
+        fit: BoxFit.cover,
+      ),
+    ),
+
+    child: Scaffold(
+    backgroundColor: Colors.transparent,
+
+    appBar: AppBar(
+    backgroundColor: Colors.black.withOpacity(0.2),
+    elevation: 0.0,
+        title: Text('Sign in'),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -46,11 +57,24 @@ class _SignInState extends State<SignIn> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 20.0),
+          child:SingleChildScrollView(
+
+
+            child: Column(
+               children: <Widget>[
+                 SizedBox(
+                     height: 300,
+                     child: Image.asset('assets/images/trainsafe.png')),
+
+                 SizedBox(height: 20.0),
               TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'email'),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                    filled: true,
+                    fillColor: Colors.black.withOpacity(0.4)
+
+                ),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -59,7 +83,13 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 20.0),
               TextFormField(
                 obscureText: true,
-                decoration: textInputDecoration.copyWith(hintText: 'password'),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    filled: true,
+                    fillColor: Colors.black.withOpacity(0.4)
+
+                ),
                 validator: (val) => val.length < 6 ? 'Enter a password 6+ chars long' : null,
                 onChanged: (val) {
                   setState(() => password = val);
@@ -67,7 +97,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                  color: Colors.pink[400],
+                  color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
                     'Sign In',
                     style: TextStyle(color: Colors.white),
@@ -87,7 +117,8 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                  color: Colors.pink[400],
+
+                  color: Colors.orange[400].withOpacity(0.9),
                   child: Text(
                     'Sign In Anonymously',
                     style: TextStyle(color: Colors.white),
@@ -114,6 +145,8 @@ class _SignInState extends State<SignIn> {
           ),
         ),
       ),
+      ),
+    ),
     );
   }
 }
