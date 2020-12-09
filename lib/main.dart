@@ -41,8 +41,6 @@ class Home extends State<NinjaCard> {
 
   int ninjaLevel = 0;
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

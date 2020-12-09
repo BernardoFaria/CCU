@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:trainsafe/report.dart';
 
@@ -17,6 +18,7 @@ class _ReportState extends State<ReportInfection> {
   TextEditingController ccController = new TextEditingController();
   TextEditingController testController = new TextEditingController();
   DateTime dateTimeField;
+  DateFormat formatDate = DateFormat("yyyy-MM-dd");
 
 
   @override
@@ -81,7 +83,7 @@ class _ReportState extends State<ReportInfection> {
                         border: OutlineInputBorder(),
                         labelText: 'LAST SESSION',
                       ),
-                      // format: formatDate,
+                      format: formatDate,
                       onShowPicker: (context, currentValue)async {
                         final date = await showDatePicker(
                             context: context,

@@ -92,7 +92,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                           border: OutlineInputBorder(),
                           labelText: 'PICK A SESSION DATE',
                         ),
-                        // format: formatDate,
+                        format: formatDate,
                         onShowPicker: (context, currentValue)async {
                           final date = await showDatePicker(
                             context: context,
