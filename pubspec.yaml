@@ -68,7 +68,8 @@ flutter:
     - assets/images/session8.png
     - assets/images/session9.png
     - assets/images/session10.png
-    - assets/images/
+    - assets/images/wallpaper.jpg
+    - assets/images/wallpaper2.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -94,12 +95,16 @@ flutter:
     - family: Goldman-Regular
       fonts:
         - asset: fonts/Goldman-Regular.ttf
-    - family: Spinnaker-Regular
+#    - family: Spinnaker-Regular
+#      fonts:
+#        - asset: fonts/Spinnaker-Regular.ttf
+    - family: OpenSans
       fonts:
-        - asset: fonts/Spinnaker-Regular.ttf
+        - asset: fonts/OpenSans-Light.ttf
     - family: Calendar
       fonts:
         - asset: fonts/icon_calendar.ttf
+
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

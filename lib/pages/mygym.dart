@@ -45,33 +45,41 @@ class _MyGymState extends State<MyGym> {
             width: 370,
             height: 650,
             child: Container(
-              color: Colors.black.withOpacity(0.8),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.8),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: Text('MyGym',
-                        style: TextStyle(fontSize: 30,
-                            // fontFamily: 'Spinnaker-Regular',
+                        style: TextStyle(fontSize: 50,
+                            fontFamily: 'OpenSans',
                             fontWeight: FontWeight.bold)
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
                   Container(
                     width: 300.0,
-                    height: 60.0,
+                    height: 80.0,
                     child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: Colors.grey.withOpacity(0))
+                      ),
                       color: Colors.grey.withOpacity(0.3),
                       onPressed: () => showAlert(context),
                       padding: EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('QR CODE',
+                          Text('QR Code',
                             style: TextStyle(
-                              // fontFamily: 'Spinnaker-Regular',
-                                fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              fontFamily: 'OpenSans',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
@@ -81,8 +89,12 @@ class _MyGymState extends State<MyGym> {
                   SizedBox(height: 50),
                   Container(
                     width: 300.0,
-                    height: 60.0,
+                    height: 80.0,
                     child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.grey.withOpacity(0))
+                      ),
                       color: Colors.grey.withOpacity(0.3),
                       onPressed: () {
                         Navigator.pushNamed(context, '/training_plan');
@@ -91,26 +103,28 @@ class _MyGymState extends State<MyGym> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('TRAINGING PLAN',
+                          Text('Training Plan',
                             style: TextStyle(
-                              // fontFamily: 'Spinnaker-Regular',
-                                fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              fontFamily: 'OpenSans',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: 80),
+                  SizedBox(height: 50),
                   Container(
                     child: Text('Sessions',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontFamily: 'OpenSans',
+                        fontSize: 30,
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 0),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 20.0),
                     height: 150.0,
@@ -120,6 +134,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session1.png"),
                               alignment: Alignment.centerRight,
@@ -131,6 +146,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session2.png"),
                               alignment: Alignment.centerRight,
@@ -142,6 +158,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session3.png"),
                               alignment: Alignment.centerRight,
@@ -153,6 +170,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session4.png"),
                               alignment: Alignment.centerRight,
@@ -164,6 +182,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session5.png"),
                               alignment: Alignment.centerRight,
@@ -175,6 +194,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session6.png"),
                               alignment: Alignment.centerRight,
@@ -186,6 +206,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session7.png"),
                               alignment: Alignment.centerRight,
@@ -197,6 +218,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session8.png"),
                               alignment: Alignment.centerRight,
@@ -208,6 +230,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session9.png"),
                               alignment: Alignment.centerRight,
@@ -219,6 +242,7 @@ class _MyGymState extends State<MyGym> {
                         Container(
                           width: 200.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
                             image: DecorationImage(
                               image: AssetImage("assets/images/session10.png"),
                               alignment: Alignment.centerRight,

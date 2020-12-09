@@ -10,7 +10,7 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.black.withOpacity(0.8),
+      color: Colors.grey.withOpacity(0.5),
       margin: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
       child: Padding(
         padding: const EdgeInsets.all(2.0),
@@ -18,23 +18,28 @@ class SessionCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              session.date.toString(),
+              'Day: ' + session.date.toString(),
               style: TextStyle(
-                fontSize: 13.0,
+                fontSize: 15.0,
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
+            SizedBox(height: 2),
             Text(
-              session.begining.toString(),
+              'Begining Time: ' + session.begining.toString(),
               style: TextStyle(
-                fontSize: 13.0,
+                fontSize: 15.0,
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),
+            SizedBox(height: 2),
             Text(
-              session.end.toString(),
+              'End Time: ' + session.end.toString(),
               style: TextStyle(
-                fontSize: 13.0,
+                fontSize: 15.0,
+                fontFamily: 'OpenSans',
                 color: Colors.white,
               ),
             ),

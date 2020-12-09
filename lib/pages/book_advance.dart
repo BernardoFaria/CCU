@@ -14,16 +14,16 @@ class BookAdvance extends StatefulWidget {
 }
 
 class _BookAdvanceState extends State<BookAdvance> {
-  final format = DateFormat("hh:mm a");
-  final formatDate = DateFormat("yyyy-MM-dd");
+  DateFormat formatHour = DateFormat("hh:mm");
+  DateFormat formatDate = DateFormat("yyyy-MM-dd");
   // Map data = {};
 
-  // DateTime dateS;
-  // DateTime beginingS;
-  // DateTime endS;
   var dateS;
   var beginingS;
+  String beginingSformated;
   var endS;
+  String endSformated;
+
 
   @override
   void initState() {
@@ -38,9 +38,7 @@ class _BookAdvanceState extends State<BookAdvance> {
     // data = ModalRoute.of(context).settings.arguments;
     // print(data);
     DateTime now = DateTime.now();
-    // String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
     String formattedDate = DateFormat('kk:mm').format(now);
-    // print(now);
 
     return Container(
         decoration: BoxDecoration(
@@ -54,32 +52,41 @@ class _BookAdvanceState extends State<BookAdvance> {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SizedBox(
-                width: 380.0,
-                height: 550.0,
+                width: 370.0,
+                height: 650.0,
                 child: Container(
-                  color: Colors.black.withOpacity(0.8),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(25.0),
                         child: Text(
-                            'Book A Session',
-                            style: TextStyle(fontSize: 30,
-                                fontWeight: FontWeight.bold)
+                          'Book A Session',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'OpenSans',
+                          ),
                         ),
                       ),
-                    Padding(
-                        padding: const EdgeInsets.all(25.0),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
                         child: Text(
-                            // data['time'],
-                            formattedDate,
-                            style: TextStyle(fontSize: 30,
-                                fontWeight: FontWeight.bold)
+                          // data['time'],
+                          formattedDate,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'OpenSans',
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -88,60 +95,90 @@ class _BookAdvanceState extends State<BookAdvance> {
                         format: formatDate,
                         onShowPicker: (context, currentValue)async {
                           final date = await showDatePicker(
-                              context: context,
-                              firstDate: DateTime(2020),
-                              initialDate: currentValue ?? now,
-                              lastDate: DateTime(2020));
-                          return dateS = date;
+                            context: context,
+                            firstDate: DateTime(2020),
+                            initialDate: currentValue ?? now,
+                            lastDate: DateTime(2100));
+                          if(date != null) {
+                            dateS = formatDate.format(date);
+                            return date;
+                          }
                         },
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child:  DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'PICK A STARTING SESSION PERIOD',
                         ),
-                        format: format,
+                        format: formatHour,
                         onShowPicker: (context, currentValue) async {
                           final time = await showTimePicker(
                             context: context,
                             initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return beginingS = DateTimeField.convert(time);
+                          if(time != null) {
+                            beginingS = DateTimeField.convert(time);
+                            beginingSformated = formatHour.format(beginingS);
+                            return beginingS;
+                          }
                         },
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(25.0),
                       child:  DateTimeField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'PICK A ENDING SESSION PERIOD',
                         ),
-                        format: format,
+                        format: formatHour,
                         onShowPicker: (context, currentValue) async {
                           final endTime = await showTimePicker(
                             context: context,
                             initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
-                          return endS = DateTimeField.convert(endTime);
+                          if(endTime != null) {
+                            endS = DateTimeField.convert(endTime);
+                            endSformated = formatHour.format(endS);
+                            return endS;
+                          }
                         },
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(15.0),
                       child:  Chip(
-                        label: Text('SLOTS AVAILABLE: X'),
+                        padding: const EdgeInsets.all(10.0),
+                        label: Text('SLOTS AVAILABLE: X',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'OpenSans',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       )
                     ),
+                    SizedBox(height: 20),
                     FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.grey.withOpacity(0))
+                      ),
+                      // padding: const EdgeInsets.all(10.0),
                       color: Colors.grey.withOpacity(0.8),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS.toString(), begining: beginingS.toString(), end: endS.toString()));
+                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS, begining: beginingSformated, end: endSformated));
                       },
-                      child: Text('SUBMIT'),
+                      child: Text('SUBMIT',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'OpenSans',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ]
                   )
