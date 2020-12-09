@@ -28,7 +28,7 @@ class _InfectionState extends State<InfectionControl> {
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/homephoto2.jpg"),
+            image: AssetImage("assets/images/back11.jpg"),
             alignment: Alignment.centerRight,
             fit: BoxFit.cover,
           ),

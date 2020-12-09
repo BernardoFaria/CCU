@@ -30,7 +30,7 @@ class _MySessionsState extends State<MySessions> {
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/homephoto2.jpg"),
+            image: AssetImage("assets/images/back11.jpg"),
             alignment: Alignment.centerRight,
             fit: BoxFit.cover,
           ),
