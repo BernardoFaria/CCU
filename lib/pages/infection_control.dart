@@ -23,6 +23,7 @@ class _InfectionState extends State<InfectionControl> {
   Widget build(BuildContext context) {
 
     data = ModalRoute.of(context).settings.arguments;
+    print(data);
     if (data != null) { reports.add(data); } //: print("data is null");
 
     return Container(
