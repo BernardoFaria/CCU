@@ -143,7 +143,7 @@ class MyApp extends StatelessWidget {
 
         routes: {
 
-          '/': (context) => Loading(),
+          '/': (context) => Wrapper(),
 
           '/auth': (context) => Auth(),
 

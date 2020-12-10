@@ -296,21 +296,7 @@ class _MyGymState extends State<MyGym> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          child: Icon(
-            iconState,
-            size: 50,
-          ),
-          onPressed: () {
-            // Respond to button press
-            Navigator.pushNamed(context, '/infection_control');
 
-          },
-
-        ),
-
-        floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       ),
     );
   }

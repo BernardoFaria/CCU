@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/services/authservice.dart';
-
-import '../session.dart';
-import '../report.dart';
-import '../report_card.dart';
 
 class Homee extends StatefulWidget {
   @override
@@ -12,16 +9,17 @@ class Homee extends StatefulWidget {
 
 class Yaa extends State<Homee> {
 
-  // Map data = {};
-
+  User userRui = User(uid: 'id1');
   @override
   Widget build(BuildContext context) {
-    
-    // data = ModalRoute.of(context).settings.arguments;
-    // print(data);
+
+    if (ModalRoute.of(context).settings.arguments != null){
+        userRui =  ModalRoute.of(context).settings.arguments;
+    }
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
     final AuthService _auth = AuthService();
+
 
     return Container(
       decoration: BoxDecoration(
@@ -64,7 +62,7 @@ class Yaa extends State<Homee> {
                 ),
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance'); //, arguments: {'time': data['time']});
+                  Navigator.pushNamed(context, '/book_advance',arguments: userRui);
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),
@@ -126,7 +124,7 @@ class Yaa extends State<Homee> {
                 ),
                 color: Colors.black.withOpacity(0.55),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/my_sessions');
+                  Navigator.pushNamed(context, '/my_sessions',arguments: userRui);
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),
@@ -168,7 +166,7 @@ class Yaa extends State<Homee> {
           ),
           onPressed: () {
           // Respond to button press
-          Navigator.pushNamed(context, '/infection_control');
+          Navigator.pushReplacementNamed(context, '/infection_control',arguments: userRui);
 
         },
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/session_card.dart';
 import '../session.dart';
 
@@ -10,16 +11,15 @@ class MySessions extends StatefulWidget {
 
 class _MySessionsState extends State<MySessions> {
 
-  List<Session> sessions = [];
-  Session data;
+  User user;
 
   @override
   Widget build(BuildContext context) {
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
-    data = ModalRoute.of(context).settings.arguments;
-    if (data != null) { sessions.add(data); }// : print("data is null");
+    user = ModalRoute.of(context).settings.arguments;
+
 
     return Container(
         decoration: BoxDecoration(
@@ -52,9 +52,15 @@ class _MySessionsState extends State<MySessions> {
                         ),
                       ),
                       SizedBox(),
-                      Column(
-                        children: sessions.map((session) => SessionCard(session: session)).toList(),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 20.0),
+                        height: 410.0,
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          children: user.activeSessions.map((session) => SessionCard(session: session)).toList(),
+                        ),
                       ),
+
                     // RaisedButton(
                     //
                     // )
@@ -69,25 +75,14 @@ class _MySessionsState extends State<MySessions> {
                 children: [
                   Spacer(),
                   IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/home', arguments: user);
                   }),
                   Spacer(flex: 200),
                   IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
                 ],
               ),
             ),
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: Colors.white,
-              child: Icon(
-                iconState,
-                size: 50,
-              ),
-              onPressed: () {
-                // Respond to button press
-                Navigator.pushNamed(context, '/infection_control');
-              },
-            ),
-            floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+
         )
     );
   }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:intl/intl.dart';
-import 'dart:convert';
-import 'package:trainsafe/services/world_time.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:trainsafe/models/user.dart';
 import '../session.dart';
 
 
@@ -16,14 +14,13 @@ class BookAdvance extends StatefulWidget {
 class _BookAdvanceState extends State<BookAdvance> {
   DateFormat formatHour = DateFormat("hh:mm");
   DateFormat formatDate = DateFormat("yyyy-MM-dd");
-  // Map data = {};
 
   var dateS;
   var beginingS;
   String beginingSformated;
   var endS;
   String endSformated;
-
+  User user;
 
   @override
   void initState() {
@@ -35,8 +32,8 @@ class _BookAdvanceState extends State<BookAdvance> {
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
-    // data = ModalRoute.of(context).settings.arguments;
-    // print(data);
+    user = ModalRoute.of(context).settings.arguments;
+
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('kk:mm').format(now);
 
@@ -102,7 +99,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                           if(date != null) {
                             dateS = formatDate.format(date);
                             return date;
+
                           }
+                          return null;
                         },
                       ),
                     ),
@@ -124,6 +123,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                             beginingSformated = formatHour.format(beginingS);
                             return beginingS;
                           }
+                          return null;
                         },
                       ),
                     ),
@@ -145,6 +145,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                             endSformated = formatHour.format(endS);
                             return endS;
                           }
+                          return null;
                         },
                       ),
                     ),
@@ -170,7 +171,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                       // padding: const EdgeInsets.all(10.0),
                       color: Colors.grey.withOpacity(0.8),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/my_sessions', arguments: Session(date: dateS, begining: beginingSformated, end: endSformated));
+                        var session = Session(date: dateS, begining: beginingSformated, end: endSformated);
+                        user.addSession(session);
+                        Navigator.pushNamed(context, '/my_sessions', arguments: user);
                       },
                       child: Text('SUBMIT',
                         style: TextStyle(
@@ -191,25 +194,14 @@ class _BookAdvanceState extends State<BookAdvance> {
                 children: [
                   Spacer(),
                   IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/home', arguments: user);
                   }),
                   Spacer(flex: 200),
                   IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
                 ],
               ),
             ),
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: Colors.white,
-              child: Icon(
-                iconState,
-                size: 50,
-              ),
-              onPressed: () {
-                // Respond to button press
-                Navigator.pushNamed(context, '/infection_control');
-              },
-            ),
-            floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+
         ),
     );
   }
