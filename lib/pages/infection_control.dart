@@ -69,10 +69,7 @@ class _InfectionState extends State<InfectionControl> {
                         children: data.reportsList.map((quote) => ReportCard(quote: quote)).toList(),
                       ),
                       ),
-                      Column(
-                        children: [],
-                        //children: data.reportsList.map((quote) => ReportCard(quote: quote)).toList(),
-                      ),
+
                       SizedBox(height: 20),
                       RaisedButton(
                         shape: RoundedRectangleBorder(

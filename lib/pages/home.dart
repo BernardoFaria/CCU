@@ -16,17 +16,10 @@ class Yaa extends State<Homee> {
   User userRui = User(uid: 'id1');
   @override
   Widget build(BuildContext context) {
-    print(context);
-    print('ola');
+
     if (ModalRoute.of(context).settings.arguments != null){
         userRui =  ModalRoute.of(context).settings.arguments;
     }
-
-
-    print( ModalRoute.of(context).settings.arguments);
-    print('ola)');
-
-    // print(data);
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
     final AuthService _auth = AuthService();
@@ -73,7 +66,7 @@ class Yaa extends State<Homee> {
                 ),
                 color: Colors.black.withOpacity(0.5),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/book_advance');
+                  Navigator.pushNamed(context, '/book_advance',arguments: userRui);
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),
@@ -135,7 +128,7 @@ class Yaa extends State<Homee> {
                 ),
                 color: Colors.black.withOpacity(0.55),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/my_sessions');
+                  Navigator.pushNamed(context, '/my_sessions',arguments: userRui);
                   // Respond to button press
                 },
                 padding: EdgeInsets.all(10.0),

@@ -28,6 +28,10 @@ class User {
     return reports;
   }
 
+  List<Session> get sessionsList {
+    return activeSessions;
+  }
+
   void addReport(Report report) {
     reports.add(report) ;
   }
