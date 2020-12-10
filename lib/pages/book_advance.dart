@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:intl/intl.dart';
-import 'dart:convert';
-import 'package:trainsafe/services/world_time.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import '../session.dart';
 
@@ -16,7 +13,6 @@ class BookAdvance extends StatefulWidget {
 class _BookAdvanceState extends State<BookAdvance> {
   DateFormat formatHour = DateFormat("hh:mm");
   DateFormat formatDate = DateFormat("yyyy-MM-dd");
-  // Map data = {};
 
   var dateS;
   var beginingS;
@@ -102,7 +98,9 @@ class _BookAdvanceState extends State<BookAdvance> {
                           if(date != null) {
                             dateS = formatDate.format(date);
                             return date;
+
                           }
+                          return null;
                         },
                       ),
                     ),
@@ -124,6 +122,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                             beginingSformated = formatHour.format(beginingS);
                             return beginingS;
                           }
+                          return null;
                         },
                       ),
                     ),
@@ -145,6 +144,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                             endSformated = formatHour.format(endS);
                             return endS;
                           }
+                          return null;
                         },
                       ),
                     ),
