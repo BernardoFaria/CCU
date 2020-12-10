@@ -106,7 +106,7 @@ class _InfectionState extends State<InfectionControl> {
               children: [
                 Spacer(),
                 IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                  Navigator.pushNamed(context, '/home', arguments: data);
+                  Navigator.pushReplacementNamed(context, '/home', arguments: data);
                 }),
                 Spacer(flex: 200),
                 IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/services/authservice.dart';
 
-import '../session.dart';
-import '../report.dart';
-import '../report_card.dart';
-
 class Homee extends StatefulWidget {
   @override
   Yaa createState() => Yaa();
@@ -170,7 +166,7 @@ class Yaa extends State<Homee> {
           ),
           onPressed: () {
           // Respond to button press
-          Navigator.pushNamed(context, '/infection_control',arguments: userRui);
+          Navigator.pushReplacementNamed(context, '/infection_control',arguments: userRui);
 
         },
 
