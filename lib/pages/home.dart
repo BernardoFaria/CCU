@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/services/authservice.dart';
 
 import '../session.dart';
@@ -12,13 +13,19 @@ class Homee extends StatefulWidget {
 
 class Yaa extends State<Homee> {
 
-  // Map data = {};
 
+
+  User user;
   @override
   Widget build(BuildContext context) {
-    
-    // data = ModalRoute.of(context).settings.arguments;
-    // print(data);
+
+    var userRui = new User(uid: 'id1');
+    print(userRui.reportsList);
+
+    //user = ModalRoute.of(context).settings.arguments;
+
+    userRui = user ;
+
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
     final AuthService _auth = AuthService();
@@ -168,7 +175,7 @@ class Yaa extends State<Homee> {
           ),
           onPressed: () {
           // Respond to button press
-          Navigator.pushNamed(context, '/infection_control');
+            Navigator.pushReplacementNamed(context, '/infection_control',arguments: userRui);
 
         },
 

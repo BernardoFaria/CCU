@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
+import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/report.dart';
 
 class ReportInfection extends StatefulWidget {
@@ -23,10 +24,13 @@ class _ReportState extends State<ReportInfection> {
   // final formatDate = DateFormat("yyyy-MM-dd");
 
   DateFormat formatDate = DateFormat("yyyy-MM-dd");
-
+  User user;
 
   @override
   Widget build(BuildContext context) {
+
+    user = ModalRoute.of(context).settings.arguments;
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -119,7 +123,10 @@ class _ReportState extends State<ReportInfection> {
                   FlatButton(
                     color: Colors.blueGrey.withOpacity(0.8),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/infection_control', arguments: Report(name: nameController.text, cc: ccController.text, lastSession:dateController , covidTest: testController.text));
+                      var report = Report(name: nameController.text, cc: ccController.text, lastSession:dateController , covidTest: testController.text);
+                      user.addReport(report);
+
+                      Navigator.pushNamed(context, '/infection_control', arguments: user );
                       // Respond to button press
                     },
                     child: Text('SUBMIT'),

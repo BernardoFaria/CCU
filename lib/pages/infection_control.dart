@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/report_card.dart';
 
 import '../report.dart';
@@ -10,14 +12,8 @@ class InfectionControl extends StatefulWidget {
 }
 
 class _InfectionState extends State<InfectionControl> {
-  String s ='ola';
 
-  List<Report> reports = [
-    Report(name: '*****', cc: '*****', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: '*****', cc: '*****', lastSession: '12/09', covidTest: 'teste.png')
-  ];
-
-  Report data;
+  User data;
 
   IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
@@ -25,8 +21,8 @@ class _InfectionState extends State<InfectionControl> {
   Widget build(BuildContext context) {
 
     data = ModalRoute.of(context).settings.arguments;
-    print(data);
-    if (data != null) { reports.add(data); } //: print("data is null");
+    print(data.runtimeType);
+   // if (data != null) { reports.add(data); } //: print("data is null");
 
     return Container(
         decoration: BoxDecoration(
@@ -60,7 +56,7 @@ class _InfectionState extends State<InfectionControl> {
                       ),
                       SizedBox(),
                       Column(
-                        children: reports.map((quote) => ReportCard(quote: quote)).toList(),
+                        //children: data.reportsList.map((quote) => ReportCard(quote: quote)).toList(),
                       ),
                       SizedBox(height: 20),
                       RaisedButton(
@@ -70,7 +66,7 @@ class _InfectionState extends State<InfectionControl> {
                         ),
                         color: Colors.grey.withOpacity(0.3),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/report_infection');
+                          Navigator.pushNamed(context, '/report_infection', arguments: data);
                           // Respond to button press
                         },
                         padding: EdgeInsets.all(10.0),
@@ -89,16 +85,18 @@ class _InfectionState extends State<InfectionControl> {
                       )
                     ]
                   ),
+
                 ),
               ),
             ),
+
           bottomNavigationBar: BottomAppBar(
             color: Colors.black.withOpacity(1.0),
             child: Row(
               children: [
                 Spacer(),
                 IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushNamed(context, '/home',arguments: data);
                 }),
                 Spacer(flex: 200),
                 IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

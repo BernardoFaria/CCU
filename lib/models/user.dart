@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:trainsafe/session.dart';
 
 import '../report.dart';
@@ -6,8 +7,8 @@ class User {
 
   final String uid;
   List<Report> reports = [
-    Report(name: '*****', cc: '*****', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: '*****', cc: '*****', lastSession: '12/09', covidTest: 'teste.png')
+    Report(name: 'jose', cc: '*****', lastSession: '11/09', covidTest: 'teste.png'),
+    Report(name: 'amilcar', cc: '*****', lastSession: '12/09', covidTest: 'teste.png')
   ];
 
   List<Session> activeSessions = [
@@ -19,7 +20,9 @@ class User {
   ];
 
 
-
+  String get getUserId{
+    return uid;
+  }
 
   List<Report> get reportsList {
     return reports;
