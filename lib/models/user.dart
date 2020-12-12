@@ -45,6 +45,20 @@ class User {
     expiredSessions.add(session);
   }
 
-  User({ this.uid });
+  List reportInfo(List<Report> report){
+    List ret = [];
+    report.forEach((element) {ret.add( element.name + '|' + element.cc + '|' + element.lastSession + '|' + element.covidTest );} );
+    print(ret);
+    return ret;
+  }
+
+  List sessionInfo(List<Session> session){
+    List ret = [];
+    session.forEach((element) {ret.add( element.date + '|' + element.begining + '|' + element.end );} );
+    return ret;
+  }
+
+
+  User({ this.uid, name, reports, activeSessions, expiredSessions });
 
 }
