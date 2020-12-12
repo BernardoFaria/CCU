@@ -7,16 +7,16 @@ class User {
 
   final String uid;
   List<Report> reports = [
-    Report(name: 'jose', cc: '***', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: 'amilcar', cc: '***', lastSession: '12/09', covidTest: 'teste.png')
+    //Report(name: 'jose', cc: '***', lastSession: '11/09', covidTest: 'teste.png'),
+    //Report(name: 'amilcar', cc: '***', lastSession: '12/09', covidTest: 'teste.png')
   ];
 
   List<Session> activeSessions = [
-    Session(date: '12/12/20', begining: '11:00', end: '12:00')
+    //Session(date: '12/12/20', begining: '11:00', end: '12:00')
   ];
 
   List<Session> expiredSessions = [
-    Session(date: '13/13/20', begining: '11:00', end: '12:00')
+    //Session(date: '13/13/20', begining: '11:00', end: '12:00')
   ];
 
 
@@ -59,6 +59,6 @@ class User {
   }
 
 
-  User({ this.uid, name, reports, activeSessions, expiredSessions });
+  User({ this.uid, reports, activeSessions, expiredSessions });
 
 }

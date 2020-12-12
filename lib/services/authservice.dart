@@ -56,7 +56,7 @@ class AuthService {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
-
+/*
       await DatabaseService(uid: user.uid).updateUserData(user.uid, [
         "jose|***|11/09|teste.png",
         "manel|***|11/09|teste.png",
@@ -64,7 +64,7 @@ class AuthService {
         "12/12/20|11:00|12:00"
       ], [
         "11/12/20|11:00|12:00"
-      ]);
+      ]);*/
 
       return _userFromFirebaseUser(user);
     } catch (error) {

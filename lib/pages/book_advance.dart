@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:provider/provider.dart';
 import 'package:trainsafe/models/user.dart';
+import 'package:trainsafe/screenarguments.dart';
 import '../session.dart';
 
 
@@ -20,7 +24,55 @@ class _BookAdvanceState extends State<BookAdvance> {
   String beginingSformated;
   var endS;
   String endSformated;
+  ScreenArguments data;
   User user;
+  List<User> usersList;
+
+
+  String slotsAvailable = '10';
+  void getSlots(){
+    int maxSlots = 10;
+    usersList.forEach((element) {
+
+      if (element.uid == user.uid) {//tem de se por != quando estiver implementado
+        element.sessionsList.forEach((session) {
+          if (session.date == dateS) {
+            print('mesma data');
+            List hoursList =[8,9,10,11,12,1,2,3,4,5,6,7];
+            var beginingList = session.begining.split(":");
+            var endList = session.end.split(":");
+            print('innicio' + beginingSformated);
+            print('1 - '+ hoursList.indexOf(int.parse(beginingSformated.split(':')[0])).toString());
+            print('2 - '+ hoursList.indexOf(int.parse(endSformated.split(':')[0])).toString());
+            print('3 - '+ hoursList.indexOf(int.parse(beginingList[0])).toString());
+            print('4 - '+ hoursList.indexOf(int.parse(endList[0])).toString());
+
+
+            if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0]))){
+              maxSlots -=1;
+              print('entre duas coisas');
+            }
+            else if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) &&hoursList.indexOf(int.parse(endSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0]))){
+              maxSlots -=1;
+              print('atras  coisas');
+
+            }else if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(endList[0])) ){
+              maxSlots -=1;
+              print('frente  coisas');
+
+            }
+
+          }
+        });
+      }
+
+    });
+    print(maxSlots);
+
+    setState(() {
+      slotsAvailable = maxSlots.toString();
+    });
+  }
 
   @override
   void initState() {
@@ -32,10 +84,15 @@ class _BookAdvanceState extends State<BookAdvance> {
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
-    user = ModalRoute.of(context).settings.arguments;
+    data = ModalRoute.of(context).settings.arguments;
+
+    user = data.user;
+    usersList = data.userList;
 
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('kk:mm').format(now);
+
+
 
     return Container(
         decoration: BoxDecoration(
@@ -141,8 +198,10 @@ class _BookAdvanceState extends State<BookAdvance> {
                             initialTime: TimeOfDay.fromDateTime(currentValue ?? now),
                           );
                           if(endTime != null) {
+
                             endS = DateTimeField.convert(endTime);
                             endSformated = formatHour.format(endS);
+                            getSlots();
                             return endS;
                           }
                           return null;
@@ -153,7 +212,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                       padding: const EdgeInsets.all(15.0),
                       child:  Chip(
                         padding: const EdgeInsets.all(10.0),
-                        label: Text('SLOTS AVAILABLE: X',
+                        label: Text( 'Slots Available: $slotsAvailable',
                           style: TextStyle(
                             fontSize: 16,
                             fontFamily: 'OpenSans',

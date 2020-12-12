@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/models/user2.dart';
+import 'package:trainsafe/screenarguments.dart';
 import 'package:trainsafe/services/authservice.dart';
 import 'package:trainsafe/services/database.dart';
 import 'package:trainsafe/pages/UserList.dart';
@@ -18,12 +20,17 @@ class Yaa extends State<Homee> {
 
   User userRui = User(uid: 'id1');
 
+  List<User> userList ;
+
 
   @override
   Widget build(BuildContext context) {
-
-    /*final userInfo = Provider.of<QuerySnapshot>(context);
+/*
+    final userInfo = Provider.of<QuerySnapshot>(context);
+    print('aqui');
     print(userInfo);
+    print('aqui');
+
     for (var doc in userInfo.documents) {
       print(doc.data);
     }*/
@@ -36,16 +43,18 @@ class Yaa extends State<Homee> {
 
 
     final user = Provider.of<User>(context);
-    print("_____________________________________");
-    print(user.uid);
-    print(user.expiredSessions);
-    print("*******************************************");
+    //print("_____________________________________");
+    //print(user.uid);
+    //print(user.expiredSessions);
+    //print("*******************************************");
     userRui = user;
 
     DatabaseService(uid: user.uid).updateUserData(user.uid,
       user.reportInfo(user.reports),
       user.sessionInfo(user.activeSessions),
       user.sessionInfo(user.expiredSessions));
+
+    //print(DatabaseService(uid: user.uid).users.ma);
 
     /*final users = Provider.of<List<User>>(context);
 
@@ -54,6 +63,9 @@ class Yaa extends State<Homee> {
         userRui = u;
       }
     }*/
+    userList = [userRui];
+
+
 
 
 
@@ -100,7 +112,7 @@ class Yaa extends State<Homee> {
                   ),
                   color: Colors.black.withOpacity(0.5),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/book_advance',arguments: userRui);
+                    Navigator.pushNamed(context, '/book_advance',arguments: ScreenArguments(userRui, userList) );
                     // Respond to button press
                   },
                   padding: EdgeInsets.all(10.0),
@@ -184,7 +196,7 @@ class Yaa extends State<Homee> {
               Divider(
                 height: 60.0,
               ),
-              UserList(),
+              //UserList(),
             ],
           ),
         bottomNavigationBar: BottomAppBar(

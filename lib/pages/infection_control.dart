@@ -13,10 +13,7 @@ class InfectionControl extends StatefulWidget {
 class _InfectionState extends State<InfectionControl> {
 
 
-  List<Report> reports = [
-    Report(name: '*****', cc: '*****', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: '*****', cc: '*****', lastSession: '12/09', covidTest: 'teste.png')
-  ];
+
 
   User data;
 
@@ -28,7 +25,6 @@ class _InfectionState extends State<InfectionControl> {
     data = ModalRoute.of(context).settings.arguments;
 
 
-    //if (data != null) { reports.add(data); } //: print("data is null");
 
     return Container(
         decoration: BoxDecoration(
