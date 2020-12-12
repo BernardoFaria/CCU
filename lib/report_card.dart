@@ -42,7 +42,7 @@ class ReportCard extends StatelessWidget {
                 ),
               ),
               Text(
-                'COVID Test: ' + quote.covidTest,
+                'COVID Test ID: ' + quote.covidTest,
                 style: TextStyle(
                   fontSize: 15.0,
                   fontFamily: 'OpenSans',
