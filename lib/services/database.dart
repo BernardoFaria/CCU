@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/models/user2.dart';
 import 'package:trainsafe/report.dart';
@@ -35,11 +36,11 @@ class DatabaseService {
         reports.add(Report(name: xx[0], cc : xx[1], lastSession: xx[2], covidTest: xx[3])); });
       doc.data['activeSessions'].forEach((x) {
         var xx = x.split('|');
-        reports.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
+        activeSessions.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
       doc.data['expiredSessions'].forEach((x) {
         var xx = x.split('|');
-        reports.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
-
+        expiredSessions.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
+      print(activeSessions.length);
       return User(
           uid: doc.data['uid'],
           reports: reports ?? [],

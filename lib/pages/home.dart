@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/models/user2.dart';
+import 'package:trainsafe/pages/auth/auth.dart';
 import 'package:trainsafe/screenarguments.dart';
 import 'package:trainsafe/services/authservice.dart';
 import 'package:trainsafe/services/database.dart';
