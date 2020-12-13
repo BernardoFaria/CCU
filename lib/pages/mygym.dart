@@ -131,17 +131,22 @@ class _MyGymState extends State<MyGym> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        Container(
-                          width: 200.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/session1.png"),
-                              alignment: Alignment.centerRight,
-                              fit: BoxFit.cover,
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.pushNamed(context, '/video');
+                          },
+                          child: Container(
+                            width: 200.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/session1.png"),
+                                alignment: Alignment.centerRight,
+                                fit: BoxFit.cover,
+                              ),
                             ),
+                            // color: Colors.red,
                           ),
-                          // color: Colors.red,
                         ),
                         Container(
                           width: 200.0,

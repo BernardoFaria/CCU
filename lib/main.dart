@@ -12,6 +12,7 @@ import 'package:trainsafe/pages/mygym.dart';
 import 'package:trainsafe/pages/training_plan.dart';
 import 'package:trainsafe/pages/mysessions.dart';
 import 'package:trainsafe/services/authservice.dart';
+import 'package:trainsafe/services/video.dart';
 import 'models/user.dart';
 import 'report.dart';
 import 'report_card.dart';
@@ -164,6 +165,8 @@ class MyApp extends StatelessWidget {
           '/training_plan': (context) => TrainingPlan(),
 
           '/my_sessions': (context) => MySessions(),
+
+          '/video': (context) => VideoDemo(),
 
         },
 

@@ -15,13 +15,10 @@ class _UserListState extends State<UserList> {
     final users = Provider.of<List<User>>(context);
     //print(brews.documents);
 
-    users.forEach((user) {
-      print(user);
+    /*users.forEach((user) {
       print(user.uid);
-      print(user.reports);
       print(user.activeSessions);
-      print(user.expiredSessions);
-    });
+    });*/
 
     return Container();
   }

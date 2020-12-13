@@ -6,6 +6,7 @@ import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:provider/provider.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/screenarguments.dart';
+import 'package:trainsafe/services/database.dart';
 import '../session.dart';
 
 
@@ -29,12 +30,13 @@ class _BookAdvanceState extends State<BookAdvance> {
   List<User> usersList;
 
 
+
   String slotsAvailable = '10';
   void getSlots(){
     int maxSlots = 10;
     usersList.forEach((element) {
 
-      if (element.uid == user.uid) {//tem de se por != quando estiver implementado
+      if (element.uid != user.uid) {//tem de se por != quando estiver implementado
         element.sessionsList.forEach((session) {
           if (session.date == dateS) {
             print('mesma data');
@@ -88,6 +90,7 @@ class _BookAdvanceState extends State<BookAdvance> {
 
     user = data.user;
     usersList = data.userList;
+    print(usersList.length);
 
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('kk:mm').format(now);
@@ -229,9 +232,13 @@ class _BookAdvanceState extends State<BookAdvance> {
                       ),
                       // padding: const EdgeInsets.all(10.0),
                       color: Colors.grey.withOpacity(0.8),
-                      onPressed: () {
+                      onPressed: () async {
                         var session = Session(date: dateS, begining: beginingSformated, end: endSformated);
                         user.addSession(session);
+                        await DatabaseService(uid: user.uid).updateUserData(user.uid,
+                            user.reportInfo(user.reports),
+                            user.sessionInfo(user.activeSessions),
+                            user.sessionInfo(user.expiredSessions));
                         Navigator.pushNamed(context, '/my_sessions', arguments: user);
                       },
                       child: Text('SUBMIT',
