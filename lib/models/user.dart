@@ -7,16 +7,16 @@ class User {
 
   final String uid;
   List<Report> reports = [
-    Report(name: 'jose', cc: '***', lastSession: '11/09', covidTest: 'teste.png'),
-    Report(name: 'amilcar', cc: '***', lastSession: '12/09', covidTest: 'teste.png')
+    //Report(name: 'jose', cc: '***', lastSession: '11/09', covidTest: 'teste.png'),
+    //Report(name: 'amilcar', cc: '***', lastSession: '12/09', covidTest: 'teste.png')
   ];
 
   List<Session> activeSessions = [
-    Session(date: '12/12/20', begining: '11:00', end: '12:00')
+    //Session(date: '12/12/20', begining: '11:00', end: '12:00')
   ];
 
   List<Session> expiredSessions = [
-    Session(date: '13/13/20', begining: '11:00', end: '12:00')
+    //Session(date: '13/13/20', begining: '11:00', end: '12:00')
   ];
 
 
@@ -45,6 +45,20 @@ class User {
     expiredSessions.add(session);
   }
 
-  User({ this.uid });
+  List reportInfo(List<Report> report){
+    List ret = [];
+    report.forEach((element) {ret.add( element.name + '|' + element.cc + '|' + element.lastSession + '|' + element.covidTest );} );
+    print(ret);
+    return ret;
+  }
+
+  List sessionInfo(List<Session> session){
+    List ret = [];
+    session.forEach((element) {ret.add( element.date + '|' + element.begining + '|' + element.end );} );
+    return ret;
+  }
+
+
+  User({ this.uid, reports, activeSessions, expiredSessions });
 
 }

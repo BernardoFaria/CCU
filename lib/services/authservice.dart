@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:trainsafe/models/user.dart';
 
+import '../report.dart';
+import '../session.dart';
+import 'database.dart';
+
 class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -52,6 +56,16 @@ class AuthService {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+/*
+      await DatabaseService(uid: user.uid).updateUserData(user.uid, [
+        "jose|***|11/09|teste.png",
+        "manel|***|11/09|teste.png",
+      ], [
+        "12/12/20|11:00|12:00"
+      ], [
+        "11/12/20|11:00|12:00"
+      ]);*/
+
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
