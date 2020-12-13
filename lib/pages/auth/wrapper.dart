@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:trainsafe/services/database.dart';
 
 import 'auth.dart';
 
@@ -15,7 +16,9 @@ class Wrapper extends StatelessWidget {
     if (user == null){
       return Auth();
     } else {
-      return Homee();
+      return StreamProvider<List<User>>.value(
+          value: DatabaseService().users,
+          child: Homee());
     }
   }
 }

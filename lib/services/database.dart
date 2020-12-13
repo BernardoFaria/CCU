@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/models/user2.dart';
 import 'package:trainsafe/report.dart';
@@ -26,26 +29,29 @@ class DatabaseService {
   List<User> _brewListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc){
       //print(doc.data);
-      var reports = [];
-      var activeSessions = [];
-      var expiredSessions = [];
+      List<Report> reports = [];
+      List<Session> activeSessions = [];
+      List<Session> expiredSessions = [];
 
       doc.data['reports'].forEach((x) {
         var xx = x.split('|');
         reports.add(Report(name: xx[0], cc : xx[1], lastSession: xx[2], covidTest: xx[3])); });
       doc.data['activeSessions'].forEach((x) {
         var xx = x.split('|');
-        reports.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
+        activeSessions.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
       doc.data['expiredSessions'].forEach((x) {
         var xx = x.split('|');
-        reports.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
+        expiredSessions.add(Session(date: xx[0], begining: xx[1], end: xx[2])); });
 
-      return User(
+
+      User user = User(
           uid: doc.data['uid'],
           reports: reports ?? [],
           activeSessions: activeSessions ?? [],
           expiredSessions: expiredSessions ?? []
       );
+
+      return user;
     }).toList();
   }
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -14,13 +16,17 @@ class Homee extends StatefulWidget {
   Yaa createState() => Yaa();
 }
 
+
+
 class Yaa extends State<Homee> {
 
   final AuthService _auth = AuthService();
 
-  User userRui = User(uid: 'id1');
+  //User userRui = User(uid: 'id1');
 
   List<User> userList ;
+
+  User userRui;
 
 
   @override
@@ -34,40 +40,35 @@ class Yaa extends State<Homee> {
     for (var doc in userInfo.documents) {
       print(doc.data);
     }*/
+    userList = Provider.of<List<User>>(context);
 
-    if (ModalRoute.of(context).settings.arguments != null){
+
+    userRui = Provider.of<User>(context);
+
+
+
+   /* if (ModalRoute.of(context).settings.arguments != null){
         userRui =  ModalRoute.of(context).settings.arguments;
-    }
+    }*/
 
     IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
 
-    final user = Provider.of<User>(context);
     //print("_____________________________________");
     //print(user.uid);
     //print(user.expiredSessions);
     //print("*******************************************");
-    userRui = user;
 
-    DatabaseService(uid: user.uid).updateUserData(user.uid,
-      user.reportInfo(user.reports),
-      user.sessionInfo(user.activeSessions),
-      user.sessionInfo(user.expiredSessions));
 
     //print(DatabaseService(uid: user.uid).users.ma);
-
-    /*final users = Provider.of<List<User>>(context);
-
-    for (var u in users) {
-      if(user.uid == u.uid){
-        userRui = u;
+    if(userList != null) {
+      for (var u in userList) {
+        if (userRui.uid == u.uid) {
+          userRui = u;
+          print(userRui.uid);
+        }
       }
-    }*/
-    userList = [userRui];
-
-
-
-
+    }
 
     return StreamProvider<List<User>>.value(
       value: DatabaseService().users,
@@ -87,7 +88,7 @@ class Yaa extends State<Homee> {
             actions: <Widget>[
               FlatButton.icon(
                 icon: Icon(Icons.person),
-                label: Text('logout'),
+                label: Text('Logout'),
                 onPressed: () async {
                   await _auth.signOut();
                 },
@@ -112,6 +113,7 @@ class Yaa extends State<Homee> {
                   ),
                   color: Colors.black.withOpacity(0.5),
                   onPressed: () {
+
                     Navigator.pushNamed(context, '/book_advance',arguments: ScreenArguments(userRui, userList) );
                     // Respond to button press
                   },
@@ -174,6 +176,7 @@ class Yaa extends State<Homee> {
                   ),
                   color: Colors.black.withOpacity(0.55),
                   onPressed: () {
+
                     Navigator.pushNamed(context, '/my_sessions',arguments: userRui);
                     // Respond to button press
                   },
@@ -196,7 +199,7 @@ class Yaa extends State<Homee> {
               Divider(
                 height: 60.0,
               ),
-              //UserList(),
+              UserList(),
             ],
           ),
         bottomNavigationBar: BottomAppBar(

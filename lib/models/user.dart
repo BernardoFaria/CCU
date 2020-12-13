@@ -59,6 +59,6 @@ class User {
   }
 
 
-  User({ this.uid, reports, activeSessions, expiredSessions });
+  User({ this.uid, this.reports, this.activeSessions, this.expiredSessions });
 
 }
