@@ -15,7 +15,7 @@ class _InfectionState extends State<InfectionControl> {
 
 
 
-  User data;
+  List<User> data;
 
   IconData iconState = false ? Icons.error_outline : Icons.arrow_drop_down_circle_outlined;
 
@@ -24,6 +24,15 @@ class _InfectionState extends State<InfectionControl> {
 
     data = ModalRoute.of(context).settings.arguments;
 
+    List<Report> list = [];
+
+    for (var u in data) {
+      if (u.reports.isNotEmpty){
+        for ( var x in u.reports){
+          list.add(x);
+        }
+      }
+    }
 
 
     return Container(
@@ -62,7 +71,7 @@ class _InfectionState extends State<InfectionControl> {
                         height: 410.0,
                         child: ListView(
                         scrollDirection: Axis.vertical,
-                        children: data.reportsList.map((quote) => ReportCard(quote: quote)).toList(),
+                        children: list.map((quote) => ReportCard(quote: quote)).toList(),
                       ),
                       ),
 

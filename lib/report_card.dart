@@ -49,14 +49,6 @@ class ReportCard extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              FlatButton.icon(
-                color: Colors.white,
-                onPressed: () {
-
-                },
-                label: Text('Delete'),
-                icon: Icon(Icons.delete),
-              )
             ],
           ),
         )

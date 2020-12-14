@@ -227,7 +227,7 @@ class Yaa extends State<Homee> {
             ),
             onPressed: () {
             // Respond to button press
-            Navigator.pushReplacementNamed(context, '/infection_control',arguments: userRui);
+            Navigator.pushReplacementNamed(context, '/infection_control',arguments: userList);
 
           },
 
