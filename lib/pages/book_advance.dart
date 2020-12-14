@@ -74,6 +74,170 @@ class _BookAdvanceState extends State<BookAdvance> {
     super.initState();
   }
 
+  showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: SizedBox(
+
+            width: 400.0,
+            height: 500.0,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+
+                  child:  Container(
+                    margin: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Text(
+                      'SESSION DATE',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'OpenSans',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    dateS,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'OpenSans',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+
+                  child:  Container(
+                    margin: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Text(
+                      'STARTING PERIOD',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'OpenSans',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    beginingSformated,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'OpenSans',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+
+                  child:  Container(
+                    margin: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Text(
+                      'ENDING PERIOD',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'OpenSans',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    endSformated,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'OpenSans',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+
+                  child:  Container(
+                    margin: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Text(
+                      'AVAILABLE SLOTS',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'OpenSans',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    slotsAvailable,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'OpenSans',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: Colors.grey.withOpacity(0))
+                    ),
+                    // padding: const EdgeInsets.all(10.0),
+                    color: Colors.grey.withOpacity(0.8),
+                    onPressed: () async {
+                      Navigator.of(context, rootNavigator: true).pop();
+                    },
+                    child: Text('RETURN',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'OpenSans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ),
+              ],
+            ),
+          )
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -198,6 +362,8 @@ class _BookAdvanceState extends State<BookAdvance> {
                             endS = DateTimeField.convert(endTime);
                             endSformated = formatHour.format(endS);
                             getSlots();
+
+                            showAlert(context);
                             return endS;
                           }
                           return null;
