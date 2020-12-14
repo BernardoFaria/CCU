@@ -293,7 +293,7 @@ class _MyGymState extends State<MyGym> {
             children: [
               Spacer(),
               IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/');
               }),
               Spacer(flex: 200),
               IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

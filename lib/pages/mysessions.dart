@@ -75,7 +75,7 @@ class _MySessionsState extends State<MySessions> {
                 children: [
                   Spacer(),
                   IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                    Navigator.pushNamed(context, '/home', arguments: user);
+                    Navigator.pushReplacementNamed(context, '/', arguments: user);
                   }),
                   Spacer(flex: 200),
                   IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

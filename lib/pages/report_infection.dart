@@ -5,6 +5,7 @@ import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
 import 'package:trainsafe/models/user.dart';
 import 'package:trainsafe/report.dart';
+import 'package:trainsafe/services/database.dart';
 
 class ReportInfection extends StatefulWidget {
   @override
@@ -122,11 +123,15 @@ class _ReportState extends State<ReportInfection> {
                   ),
                   FlatButton(
                     color: Colors.blueGrey.withOpacity(0.8),
-                    onPressed: () {
+                    onPressed: () async {
                       var report = Report(name: nameController.text, cc: ccController.text, lastSession:dateController , covidTest: testController.text);
                       user.addReport(report);
+                      await DatabaseService(uid: user.uid).updateUserData(user.uid,
+                          user.reportInfo(user.reports),
+                          user.sessionInfo(user.activeSessions),
+                          user.sessionInfo(user.expiredSessions));
 
-                      Navigator.pushNamed(context, '/infection_control', arguments:user);
+                      Navigator.pushReplacementNamed(context, '/infection_control', arguments:user);
                       // Respond to button press
                     },
                     child: Text('SUBMIT'),

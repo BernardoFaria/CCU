@@ -114,7 +114,7 @@ class Yaa extends State<Homee> {
                   color: Colors.black.withOpacity(0.5),
                   onPressed: () {
 
-                    Navigator.pushNamed(context, '/book_advance',arguments: ScreenArguments(userRui, userList) );
+                    Navigator.pushReplacementNamed(context, '/book_advance',arguments: ScreenArguments(userRui, userList) );
                     // Respond to button press
                   },
                   padding: EdgeInsets.all(10.0),
@@ -146,7 +146,7 @@ class Yaa extends State<Homee> {
                   color: Colors.black.withOpacity(0.52),
                   onPressed: () {
                     // Respond to button press
-                    Navigator.pushNamed(context, '/my_gym');
+                    Navigator.pushReplacementNamed(context, '/my_gym');
 
                   },
                   padding: EdgeInsets.all(10.0),
@@ -177,7 +177,7 @@ class Yaa extends State<Homee> {
                   color: Colors.black.withOpacity(0.55),
                   onPressed: () {
 
-                    Navigator.pushNamed(context, '/my_sessions',arguments: userRui);
+                    Navigator.pushReplacementNamed(context, '/my_sessions',arguments: userRui);
                     // Respond to button press
                   },
                   padding: EdgeInsets.all(10.0),

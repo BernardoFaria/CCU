@@ -43,24 +43,17 @@ class _BookAdvanceState extends State<BookAdvance> {
             List hoursList =[8,9,10,11,12,1,2,3,4,5,6,7];
             var beginingList = session.begining.split(":");
             var endList = session.end.split(":");
-            print('innicio' + beginingSformated);
-            print('1 - '+ hoursList.indexOf(int.parse(beginingSformated.split(':')[0])).toString());
-            print('2 - '+ hoursList.indexOf(int.parse(endSformated.split(':')[0])).toString());
-            print('3 - '+ hoursList.indexOf(int.parse(beginingList[0])).toString());
-            print('4 - '+ hoursList.indexOf(int.parse(endList[0])).toString());
+
 
 
             if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0]))){
               maxSlots -=1;
-              print('entre duas coisas');
             }
             else if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) &&hoursList.indexOf(int.parse(endSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0]))){
               maxSlots -=1;
-              print('atras  coisas');
 
             }else if (hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(beginingSformated.split(':')[0]))<=hoursList.indexOf(int.parse(endList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(beginingList[0])) && hoursList.indexOf(int.parse(endSformated.split(':')[0]))>=hoursList.indexOf(int.parse(endList[0])) ){
               maxSlots -=1;
-              print('frente  coisas');
 
             }
 
@@ -239,7 +232,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                             user.reportInfo(user.reports),
                             user.sessionInfo(user.activeSessions),
                             user.sessionInfo(user.expiredSessions));
-                        Navigator.pushNamed(context, '/my_sessions', arguments: user);
+                        Navigator.pushReplacementNamed(context, '/my_sessions', arguments: user);
                       },
                       child: Text('SUBMIT',
                         style: TextStyle(
@@ -260,7 +253,7 @@ class _BookAdvanceState extends State<BookAdvance> {
                 children: [
                   Spacer(),
                   IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                    Navigator.pushNamed(context, '/home', arguments: user);
+                    Navigator.pushReplacementNamed(context, '/', arguments: user);
                   }),
                   Spacer(flex: 200),
                   IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

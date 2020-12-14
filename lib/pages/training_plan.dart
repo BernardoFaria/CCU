@@ -29,7 +29,7 @@ class _TrainingPlanState extends State<TrainingPlan> {
           children: [
             Spacer(),
             IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-              Navigator.pushNamed(context, '/my_gym');
+              Navigator.pushReplacementNamed(context, '/my_gym');
             }),
             Spacer(flex: 200),
             IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),

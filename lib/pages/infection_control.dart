@@ -74,7 +74,7 @@ class _InfectionState extends State<InfectionControl> {
                         ),
                         color: Colors.grey.withOpacity(0.3),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/report_infection',arguments: data);
+                          Navigator.pushReplacementNamed(context, '/report_infection',arguments: data);
                           // Respond to button press
                         },
                         padding: EdgeInsets.all(10.0),
@@ -102,7 +102,7 @@ class _InfectionState extends State<InfectionControl> {
               children: [
                 Spacer(),
                 IconButton(icon: Icon(Icons.keyboard_return), onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home', arguments: data);
+                  Navigator.pushReplacementNamed(context, '/', arguments: data);
                 }),
                 Spacer(flex: 200),
                 IconButton(icon: Icon(Icons.notifications_rounded), onPressed: () {}),
