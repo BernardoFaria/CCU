@@ -67,8 +67,15 @@ class Yaa extends State<Homee> {
           userRui = u;
           print(userRui.uid);
         }
+        else {
+          if(u.reports.isNotEmpty) {
+            iconState = Icons.error_outline;
+          }
+        }
       }
     }
+
+
 
     return StreamProvider<List<User>>.value(
       value: DatabaseService().users,

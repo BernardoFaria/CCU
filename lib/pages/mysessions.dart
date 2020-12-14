@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trainsafe/models/user.dart';
+import 'package:trainsafe/services/database.dart';
 import 'package:trainsafe/session_card.dart';
 import '../session.dart';
 
@@ -8,6 +9,8 @@ class MySessions extends StatefulWidget {
   @override
   _MySessionsState createState() => _MySessionsState();
 }
+
+
 
 class _MySessionsState extends State<MySessions> {
 
@@ -20,6 +23,13 @@ class _MySessionsState extends State<MySessions> {
 
     user = ModalRoute.of(context).settings.arguments;
 
+    void rmSession(session) async{
+      user.activeSessions.remove(session);
+      await DatabaseService(uid: user.uid).updateUserData(user.uid,
+          user.reportInfo(user.reports),
+          user.sessionInfo(user.activeSessions),
+          user.sessionInfo(user.expiredSessions));
+    }
 
     return Container(
         decoration: BoxDecoration(
@@ -57,7 +67,7 @@ class _MySessionsState extends State<MySessions> {
                         height: 410.0,
                         child: ListView(
                           scrollDirection: Axis.vertical,
-                          children: user.activeSessions.map((session) => SessionCard(session: session)).toList(),
+                          children: user.activeSessions.map((session) => SessionCard(session: session, delete: rmSession)).toList(),
                         ),
                       ),
 

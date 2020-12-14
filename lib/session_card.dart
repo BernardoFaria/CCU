@@ -44,8 +44,11 @@ class SessionCard extends StatelessWidget {
               ),
             ),
             FlatButton.icon(
-              color: Colors.white,
-              onPressed: delete,
+              color: Colors.transparent,
+              onPressed:() {
+                delete(session);
+                Navigator.pushReplacementNamed(context, '/');
+              },
               label: Text('Delete'),
               icon: Icon(Icons.delete),
             ),

@@ -23,6 +23,9 @@ class AuthService {
     try {
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
+
+      await DatabaseService(uid: user.uid).updateUserData(user.uid, [], [], []);
+
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
