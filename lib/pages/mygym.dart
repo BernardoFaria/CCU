@@ -97,7 +97,7 @@ class _MyGymState extends State<MyGym> {
                       ),
                       color: Colors.grey.withOpacity(0.3),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/training_plan');
+                        Navigator.pushReplacementNamed(context, '/training_plan');
                       },
                       padding: EdgeInsets.all(10.0),
                       child: Column(
@@ -133,7 +133,7 @@ class _MyGymState extends State<MyGym> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: (){
-                            Navigator.pushNamed(context, '/video');
+                            Navigator.pushReplacementNamed(context, '/video');
                           },
                           child: Container(
                             width: 200.0,
